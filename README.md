@@ -2,7 +2,9 @@
 
 [English version below](#the-founder-skill)
 
-17 skill cho Claude giúp bạn kiểm tra một ý tưởng kinh doanh trước khi tung ra, và theo dõi nó sau khi chạy thật. Miễn phí, giấy phép MIT, không cần đăng ký, không cần API key, không phải kết nối gì.
+**Đừng đợi đến khi ký hợp đồng thuê mặt bằng mới biết ý tưởng có sống được không.**
+
+17 skill cho Claude giúp bạn kiểm tra một ý tưởng kinh doanh trước khi tiêu tiền, rồi theo dõi nó sau khi mở bán. Miễn phí, giấy phép MIT, không cần đăng ký, không cần API key, không phải kết nối gì.
 
 `skills/founder-board` `skills/founder-marketing` `skills/founder-cfo`
 `skills/founder-consumer` `skills/founder-launch` `skills/founder-pricing`
@@ -11,13 +13,69 @@
 `skills/founder-compliance` `skills/founder-sales` `skills/founder-metrics`
 `skills/founder-pitch` `skills/founder-run`
 
-Một skill là hội đồng quản trị của bạn, dựa trên các khung tư duy của Alex Hormozi, Peter Thiel và Steve Jobs. Một skill là giám đốc marketing. Một skill là CFO, tìm ra biên lợi nhuận thật. Và một skill là hội đồng người tiêu dùng: nó dựng 100 khách hàng giả lập theo đúng tệp khách hàng mục tiêu của bạn, rồi chạy ý tưởng qua 100 tình huống mua hàng.
+## Mục lục
 
-Nhờ vậy bạn biết cách tung sản phẩm, cách làm marketing và cách thực sự kiếm ra tiền, trước khi tiêu hàng chục triệu đồng để học bài học đó theo cách đắt đỏ.
+- [Vì sao có bộ skill này](#vì-sao-có-bộ-skill-này)
+- [Bắt đầu nhanh](#bắt-đầu-nhanh)
+- [Cài đặt](#cài-đặt)
+- [Bạn nhận được gì](#bạn-nhận-được-gì)
+- [17 skill, chia theo giai đoạn](#17-skill-chia-theo-giai-đoạn)
+- [Một ví dụ chạy từ đầu đến cuối](#một-ví-dụ-chạy-từ-đầu-đến-cuối)
+- [Sau khi mở bán](#sau-khi-mở-bán)
+- [Dành cho thị trường Việt Nam](#dành-cho-thị-trường-việt-nam)
+- [Bán cho doanh nghiệp (B2B)](#bán-cho-doanh-nghiệp-b2b)
+- [Các công cụ Python](#các-công-cụ-python)
+- [Câu hỏi thường gặp](#câu-hỏi-thường-gặp)
+- [Những điều bộ skill này không làm được](#những-điều-bộ-skill-này-không-làm-được)
+- [Cấu trúc repo](#cấu-trúc-repo)
+
+## Vì sao có bộ skill này
+
+Phần lớn người mới kinh doanh học bài học đắt nhất theo thứ tự ngược: đặt cọc mặt bằng, làm biển hiệu, nhập hàng, chạy quảng cáo, rồi mới phát hiện mỗi đơn bán ra không đủ lãi để trả tiền thuê, hoặc khách quen ở quán bên cạnh không bao giờ đổi quán.
+
+Bộ skill này đảo thứ tự đó. Trước khi chi một đồng, bạn cho ý tưởng đi qua:
+
+- **Hội đồng quản trị.** Ba thành viên, mỗi người đọc ý tưởng qua một khung tư duy đã công bố (Alex Hormozi, Peter Thiel, Steve Jobs), chấm điểm, nêu điều có thể giết dự án và bỏ phiếu.
+- **Giám đốc marketing.** Định vị, kênh khách thật sự dùng, chiến dịch 30 ngày có lịch cụ thể.
+- **CFO.** Biên lợi nhuận thật, điểm hòa vốn mỗi ngày, năm 1 theo từng tháng, số tiền mặt bạn cần có trước khi dự án tự nuôi được mình.
+- **Hội đồng người tiêu dùng.** 100 khách hàng giả lập dựng theo đúng tệp khách mục tiêu của bạn, mỗi người một mức thu nhập, thói quen và nỗi băn khoăn, cùng xem một lời chào hàng và trả lời có mua hay không, vì sao.
+
+Và vì mô phỏng thì chưa phải thật, bộ skill còn có phần kiểm chứng với người thật (`/founder-interview`) và phần theo dõi sau khi mở bán (`/founder-metrics`).
+
+Ba nguyên tắc xuyên suốt:
+
+1. **Số liệu được tính, không được đoán.** Mọi con số trong báo cáo truy về một đầu vào bạn đưa. Thiếu trường là công cụ báo lỗi, không tự điền.
+2. **Phân biệt rõ ba loại bằng chứng:** giả lập (hội đồng người tiêu dùng), dự phóng (số liệu CFO) và thật (phỏng vấn, đặt cọc, doanh số thực). Kế hoạch cuối ghi riêng từng loại, và kết luận không bao giờ coi giả lập là thật.
+3. **Không bịa nguồn.** Đối thủ, giá, đánh giá, quy định đều lấy từ nguồn công khai kèm link. Không có nguồn thì skill nói là chưa có.
+
+## Bắt đầu nhanh
+
+1. Cài bộ skill (xem [Cài đặt](#cài-đặt)).
+2. Mở Claude Code trong thư mục dự án của bạn và gõ:
+
+```
+/founder-run Tôi muốn mở quán matcha mang đi ở Quận 1, TP. Hồ Chí Minh, bán khoảng 55.000đ một ly.
+```
+
+`/founder-run` hỏi bạn một lần ba câu (nước nào, tiền tệ gì, viết bằng ngôn ngữ nào), ghi `founder/market.json`, rồi chạy lần lượt các skill theo đúng thứ tự. Sau mỗi skill nó tóm tắt hai dòng: tìm được gì và điều đó đổi gì cho phần còn lại.
+
+3. Nếu chỉ muốn thử nhanh một ý tưởng còn đang nghĩ:
+
+```
+/founder-consumer --quick
+```
+
+Lệnh này chạy 20 khách giả lập thay vì 100, đủ để biết có nên theo tiếp không.
+
+4. Biết mình đang ở đâu và bước tiếp theo là gì, bất cứ lúc nào:
+
+```bash
+python3 skills/founder-run/status.py
+```
 
 ## Cài đặt
 
-Dán link repo này vào Claude và nói `install skill`:
+Cách nhanh nhất: dán link repo vào Claude và nói `install skill`.
 
 ```
 https://github.com/lucas10xai/opc-founder-skill
@@ -39,64 +97,211 @@ git clone https://github.com/lucas10xai/opc-founder-skill.git
 cp -r opc-founder-skill/skills/founder-* ~/.claude/skills/
 ```
 
-Muốn dùng riêng cho một dự án thay vì toàn máy: copy các thư mục đó vào `.claude/skills/` của repo. Không dùng Claude Code? Dán một file `SKILL.md` bất kỳ lên đầu cuộc trò chuyện và nó chạy như một chế độ làm việc. Bạn mất phần sub-agent và công cụ Python, nhưng phương pháp vẫn dùng được.
+Muốn dùng riêng cho một dự án thay vì toàn máy: copy các thư mục `founder-*` vào `.claude/skills/` của repo dự án.
 
-Các công cụ cần Python 3.8 trở lên. Không phải cài thêm gói nào.
+Không dùng Claude Code? Dán một file `SKILL.md` bất kỳ lên đầu cuộc trò chuyện và nó chạy như một chế độ làm việc. Bạn mất phần sub-agent và công cụ Python (nên không có hội đồng 100 khách và không có phép tính tự động), nhưng phương pháp vẫn dùng được.
 
-### Dùng cho thị trường Việt Nam
+Yêu cầu: Python 3.8 trở lên cho các công cụ. Không phải cài thêm gói nào.
 
-Cứ nói bạn kinh doanh ở Việt Nam, hoặc chạy `/founder-run`: nó hỏi một lần rồi ghi `founder/market.json` (quốc gia, tiền tệ, ngôn ngữ). Sau đó mỗi skill đọc file `locale-vn.md` của mình, tính tiền bằng VND và viết bằng tiếng Việt. Ví dụ bằng VND: `skills/founder-cfo/example.vn.json` và `skills/founder-consumer/customer.example.vn.json`.
+## Bạn nhận được gì
 
-Lưu ý: file `.md` do skill viết sẽ bằng tiếng Việt, nhưng bảng số liệu do các công cụ Python sinh ra (ví dụ báo cáo của `unit_economics.py`) vẫn dùng tiêu đề tiếng Anh. Các quy định thuế, hóa đơn, giấy phép của Việt Nam thay đổi thường xuyên (hộ kinh doanh đã đổi cách tính thuế từ 2026), nên skill chỉ trỏ tới trang chính thức để bạn kiểm tra, không nêu mức thuế hay ngưỡng từ trí nhớ.
+Mọi kết quả nằm trong thư mục `founder/` ngay trong dự án của bạn, toàn file văn bản (markdown, JSON, CSV) mà bạn đọc, sửa và đưa vào git được. Các skill đọc file của nhau, nên làm đến đâu có bằng chứng đến đó.
 
-## 17 skill
+```
+founder/
+  market.json            quốc gia, tiền tệ, ngôn ngữ (do /founder-run ghi)
+  idea.md                ý tưởng, viết rõ ràng
+  board.md               phiếu bầu và điều kiện của hội đồng
+  competitors.md         đối thủ, giá, điều khách của họ phàn nàn
+  customer.json          tệp khách mục tiêu (đầu vào của hội đồng)
+  pitch.md               lời chào hàng mà mỗi khách giả lập nhìn thấy
+  panel/results.md       ai mua, ai không, vì sao, bằng lời của họ
+  interviews/results.md  người thật so với hội đồng giả lập
+  pricing.md             khoảng giá chấp nhận được và giá nên thử
+  offer.md               gói ưu đãi trả lời các băn khoăn
+  numbers.json           đầu vào của CFO: giá, chi phí, sản lượng
+  cfo.md                 biên lợi nhuận, hòa vốn, năm 1, tiền mặt cần có
+  compliance.md          giấy phép, thuế, hóa đơn cần xác nhận
+  marketing.md           định vị, kênh, chiến dịch 30 ngày
+  brand.md               tên, giọng điệu, lời hứa
+  ops.md                 nhà cung cấp, nhân sự, quy trình, sổ rủi ro
+  launch.md              thử nghiệm thật, đếm ngược, ngày khai trương
+  business-plan.md       kế hoạch kinh doanh, kết luận nằm ở đầu trang
+  one-pager.md           bản một trang cho đối tác hoặc ngân hàng
+  actuals.csv            doanh số và chi phí thật (bạn cập nhật sau khi mở bán)
+  metrics.md             kế hoạch so với thực tế
+```
 
-| lệnh | vai trò | làm gì |
-| --- | --- | --- |
-| `/founder-board` | Hội đồng quản trị | Ba thành viên, mỗi người là một sub-agent áp dụng một khung đã công bố (Offers từ *$100M Offers*; Monopoly từ *Zero to One*; Product từ tiểu sử *Steve Jobs* của Isaacson), chấm điểm ý tưởng, nêu điều có thể giết nó và bỏ phiếu. |
-| `/founder-competitors` | Trinh sát đối thủ | Lập bản đồ đối thủ trực tiếp, gián tiếp và hàng thay thế từ nguồn công khai: giá, định vị, khách của họ phàn nàn gì. Mỗi dữ kiện đều có link. |
-| `/founder-consumer` | Hội đồng người tiêu dùng | Dựng một bầy khách hàng giả lập (mặc định 100) từ tệp khách mục tiêu, mỗi người có thu nhập, thói quen và nỗi băn khoăn riêng, rồi tổng hợp ai mua, ai không và vì sao. |
-| `/founder-pricing` | Chiến lược giá | Biến các câu trả lời về giá của hội đồng thành khoảng giá chấp nhận được, đặt cạnh giá đối thủ và biên lợi nhuận của bạn, rồi chọn mức giá nên thử. |
-| `/founder-offer` | Kiến trúc sư ưu đãi | Dựng gói ưu đãi (quà tặng, cam kết, tính khan hiếm thật, tên gọi) để trả lời các băn khoăn của hội đồng, rồi chạy lại để kiểm tra. |
-| `/founder-cfo` | CFO | Kinh tế đơn vị: lãi trên mỗi đơn vị bán, biên lợi nhuận thật, điểm hòa vốn mỗi ngày, năm 1 theo từng tháng, tiền mặt cần có, thời gian hoàn vốn, các kịch bản "nếu". |
-| `/founder-marketing` | Giám đốc marketing | Định vị, kênh khách thật sự dùng, chiến dịch 30 ngày có lịch cụ thể, 10 câu mở đầu và số tiền tối đa có thể trả để có một khách. |
-| `/founder-brand` | Thiết kế thương hiệu | Danh sách tên kèm các bước kiểm tra nhãn hiệu, tên miền, tài khoản mạng xã hội; giọng điệu, lời hứa và bản brief cho phần hình ảnh. |
-| `/founder-ops` | Quản lý vận hành | Nhà cung cấp, nhân sự, quy trình ngày đầu, công cụ, giấy phép cần kiểm tra và sổ rủi ro; đưa chi phí thật về lại cho CFO. |
-| `/founder-launch` | Trưởng nhóm ra mắt | Trước hết là một thử nghiệm thật rẻ tiền, sau đó là đếm ngược có ngày tháng, kịch bản ngày khai trương và 30 ngày đầu. |
-| `/founder-plan` | Lập kế hoạch kinh doanh | Gộp mọi thứ thành một kế hoạch với kết luận tính từ số liệu: Profitable (có lãi), Not yet (chưa đạt) hoặc Incomplete (chưa đủ dữ liệu). |
-| `/founder-interview` | Huấn luyện khám phá khách hàng | Hội đồng chỉ là giả lập; skill này kiểm tra nó với 5 đến 10 người thật. Có bản sàng lọc và kịch bản phỏng vấn, hồ sơ từng cuộc trò chuyện, và tỷ lệ người thật trả tiền hoặc đặt cọc đặt cạnh tỷ lệ mua của hội đồng. Bạn bè được liệt kê nhưng không tính. |
-| `/founder-compliance` | Checklist tuân thủ | Giấy phép, thuế, hóa đơn, mặt bằng, lao động, quy định quảng cáo cần xác nhận theo quốc gia và loại hình kinh doanh, mỗi mục có trang chính thức để kiểm tra, người xác nhận và thời gian xử lý trước ngày ra mắt. Không nêu quy định nào nếu không có nguồn. |
-| `/founder-sales` | Trưởng nhóm bán hàng | Cho doanh nghiệp bán cho doanh nghiệp: chân dung khách lý tưởng, tin nhắn tiếp cận và theo dõi, kịch bản cuộc gọi, tính ngược phễu (số cuộc tiếp xúc cần mỗi tuần, CAC, LTV trên CAC, thời gian hoàn vốn). |
-| `/founder-metrics` | Phân tích hiệu quả | Sau khi mở bán: so doanh số và chi phí thật với kế hoạch từng tháng. Kết luận "đúng kế hoạch", "cần đổi" hoặc "dừng lại và nghĩ lại", nêu rõ con số đang lệch, và vẽ lại năm 1 từ các tháng thực tế. |
-| `/founder-pitch` | Soạn bài gọi vốn | Chỉ khi bạn gọi vốn hoặc vay: dàn ý 10 slide và 15 câu hỏi khó nhất, dựng từ chính số liệu của kế hoạch. Không bịa số liệu tăng trưởng. |
-| `/founder-run` | Chánh văn phòng | Đặt thị trường một lần, xem trong `founder/` đã có gì, và chạy skill kế tiếp theo đúng thứ tự. |
+## 17 skill, chia theo giai đoạn
 
-## Cách dùng
-
-Chạy theo thứ tự này. Mỗi skill đọc những gì skill trước đã viết, trong thư mục `founder/` ở dự án của bạn.
+Thứ tự chạy:
 
 ```
 board -> competitors -> consumer -> pricing -> offer -> cfo -> compliance -> marketing -> brand -> ops -> launch -> plan
           (interview song song sau consumer; sales cho B2B; metrics sau khi mở bán; pitch nếu gọi vốn)
 ```
 
-Ví dụ: một quán matcha mang đi ở Quận 1, TP. Hồ Chí Minh, matcha latte 55.000đ một ly. (Mọi đầu vào đều có trong các file ví dụ của repo nên bạn chạy được công cụ trên đó.)
+Bạn không bắt buộc đi hết chuỗi. Mỗi skill chạy riêng được, và `/founder-run` luôn biết còn thiếu gì.
 
-1. **`/founder-board`** ghi `founder/idea.md` từ những gì bạn kể và đưa nó trước ba thành viên hội đồng. Mỗi người chấm điểm, liệt kê rủi ro và bỏ phiếu: đầu tư, đầu tư nếu có điều kiện, hoặc bỏ qua. Các điều kiện trở thành checklist cho phần còn lại.
-2. **`/founder-competitors`** lập bản đồ các quán matcha và quán cà phê trong tầm đi bộ, họ bán latte giá bao nhiêu và khách phàn nàn gì trong đánh giá.
-3. **`/founder-consumer`** dựng tệp khách mục tiêu (nhân viên văn phòng trẻ, 22 đến 35 tuổi, uống cà phê hoặc trà sữa hầu hết các ngày), chia 100 thẻ khách theo thu nhập, thói quen và băn khoăn, rồi chạy mỗi khách một sub-agent. Kết quả: ai mua, ai không, lý do bằng lời của họ ("quán quen của mình gần hơn", "55.000đ một ly hơi mắc") và điều gì có thể đổi câu trả lời "không".
-4. **`/founder-pricing`** đọc bốn câu trả lời về giá của mỗi khách để ra khoảng giá, rồi so 55.000đ với khoảng đó và với giá đối thủ.
-5. **`/founder-offer`** trả lời các băn khoăn hàng đầu bằng ưu đãi (giá tuần khai trương, thẻ tích điểm) và chạy lại một hội đồng nhanh để xem tỷ lệ mua có nhích lên không.
-6. **`/founder-cfo`** chạy kinh tế đơn vị. Với số liệu ví dụ: mỗi ly còn lại 32,300₫ sau chi phí riêng của nó, điểm hòa vốn là 88 ly mỗi ngày, biên lợi nhuận ở mức dự kiến 200 ly mỗi ngày là 33%, năm 1 lãi hoạt động 786,216,000₫ sau giai đoạn tăng chậm, khoản đầu tư ban đầu 232,000,000₫ được hoàn lại ở tháng 7, và người sáng lập cần 249,170,000₫ tiền mặt trước khi tự nuôi được mình.
-7. **`/founder-marketing`**, **`/founder-brand`**, **`/founder-ops`** và **`/founder-launch`** biến nó thành chiến dịch 30 ngày, một cái tên và diện mạo, nhà cung cấp và quy trình, và đợt ra mắt có ngày tháng cụ thể, bắt đầu bằng một điểm bán thử để thử với khách thật.
-8. **`/founder-plan`** biên soạn `founder/business-plan.md`. Kết luận được tính, không phải viết tay: chỉ Profitable khi mỗi đơn vị bán đều có lãi, năm 1 có lợi nhuận, điểm hòa vốn nằm trong công suất, đủ khách trong hội đồng mua và, khi đã phỏng vấn từ 5 người thật trở lên, đủ số đó đã trả tiền hoặc đặt cọc. `compile.py --html` tạo trang để in ra PDF; `compile.py --vault <thư mục>` ghi kế hoạch vào kho Obsidian (hoặc để import vào Notion dạng markdown).
-9. **`/founder-metrics`**, khi đã mở bán: mỗi tuần ghi doanh số và chi phí thật vào `founder/actuals.csv`, nó cho biết bạn có đang đúng kế hoạch không.
+### Giai đoạn 1: ý tưởng này có đáng làm không
 
-Bạn cũng có thể chạy riêng từng skill. `/founder-consumer --quick` trên một ý tưởng mới chỉ đang nghĩ là cách tốt để biết có nên theo đuổi không.
+| lệnh | vai trò | làm gì | ghi ra |
+| --- | --- | --- | --- |
+| `/founder-board` | Hội đồng quản trị | Ba thành viên, mỗi người là một sub-agent áp dụng một khung đã công bố (Offers từ *$100M Offers*; Monopoly từ *Zero to One*; Product từ tiểu sử *Steve Jobs* của Isaacson). Mỗi người chấm điểm, nêu điều có thể giết ý tưởng và bỏ phiếu: đầu tư, đầu tư nếu có điều kiện, hoặc bỏ qua. | `idea.md`, `board.md` |
+| `/founder-competitors` | Trinh sát đối thủ | Lập bản đồ đối thủ trực tiếp, gián tiếp và hàng thay thế từ nguồn công khai: giá, định vị, khách của họ phàn nàn gì. Mỗi dữ kiện có link. | `competitors.md`, `competitors.csv` |
+| `/founder-consumer` | Hội đồng người tiêu dùng | Dựng bầy khách giả lập (mặc định 100, `--quick` là 20) từ tệp khách mục tiêu, mỗi khách một sub-agent. Tổng hợp tỷ lệ mua theo phân khúc, lý do không mua bằng lời của họ, điều gì có thể đổi câu trả lời "không", và bốn câu trả lời về giá cho `/founder-pricing`. | `customer.json`, `pitch.md`, `panel/` |
+| `/founder-interview` | Huấn luyện khám phá khách hàng | Hội đồng chỉ là giả lập; skill này kiểm tra nó với 5 đến 10 người thật. Soạn bản sàng lọc và kịch bản phỏng vấn theo kiểu hỏi về hành vi thật, lưu hồ sơ từng cuộc, rồi đặt tỷ lệ người thật trả tiền hoặc đặt cọc cạnh tỷ lệ mua của hội đồng. | `interviews/` |
 
-## Các công cụ
+### Giai đoạn 2: tiền và giá
 
-Tám công cụ, đều là Python chuẩn, không kết nối mạng.
+| lệnh | vai trò | làm gì | ghi ra |
+| --- | --- | --- | --- |
+| `/founder-pricing` | Chiến lược giá | Biến bốn câu trả lời về giá của mỗi khách thành khoảng giá chấp nhận được (phương pháp Van Westendorp), đặt cạnh giá đối thủ và biên lợi nhuận, rồi chọn hai mức nên thử với khách thật. | `pricing.md`, `pricing-curve.md` |
+| `/founder-offer` | Kiến trúc sư ưu đãi | Dựng gói ưu đãi (quà tặng, cam kết, tính khan hiếm thật, tên gọi) trả lời từng băn khoăn hàng đầu của hội đồng, tính chi phí của từng thứ để gói vẫn có lãi, rồi chạy lại hội đồng để xem tỷ lệ mua có nhích lên không. | `offer.md` |
+| `/founder-cfo` | CFO | Kinh tế đơn vị: lãi trên mỗi đơn vị bán, biên lợi nhuận thật, điểm hòa vốn mỗi ngày, năm 1 theo từng tháng (kể cả giai đoạn tăng chậm), tiền mặt cần có, tháng hoàn vốn, mức giá thấp nhất vẫn hòa vốn, bảng lợi nhuận theo giá nhân sản lượng và các kịch bản "nếu". | `numbers.json`, `cfo.md` |
+| `/founder-compliance` | Checklist tuân thủ | Giấy phép, thuế, hóa đơn, mặt bằng, lao động, quy định quảng cáo cần xác nhận theo quốc gia và loại hình kinh doanh. Mỗi mục có trang chính thức, người xác nhận và thời gian xử lý tính vào ngày ra mắt. Không nêu quy định nào nếu không tìm được nguồn. | `compliance.md` |
+
+### Giai đoạn 3: đưa ra thị trường
+
+| lệnh | vai trò | làm gì | ghi ra |
+| --- | --- | --- | --- |
+| `/founder-marketing` | Giám đốc marketing | Định vị một câu, kênh mà nhóm mua nhiều nhất thật sự dùng, chiến dịch 30 ngày có ngày đăng cụ thể, 10 câu mở đầu, chia ngân sách, và số tiền tối đa có thể trả để có một khách. Mỗi thông điệp trả lời một băn khoăn có thật. | `marketing.md` |
+| `/founder-sales` | Trưởng nhóm bán hàng | Cho doanh nghiệp bán cho doanh nghiệp: chân dung khách lý tưởng, tin nhắn tiếp cận và hai lần theo dõi, kịch bản cuộc gọi, phễu tính ngược. | `icp.md`, `sales.md`, `funnel.json` |
+| `/founder-brand` | Thiết kế thương hiệu | Danh sách tên kèm các bước kiểm tra nhãn hiệu, tên miền, tài khoản mạng xã hội; giọng điệu, lời hứa và bản brief cho phần hình ảnh. | `brand.md` |
+| `/founder-ops` | Quản lý vận hành | Nhà cung cấp và báo giá, lịch làm việc, quy trình cho các khoảnh khắc quyết định (mở cửa, phục vụ, xử lý khiếu nại, đóng cửa), công cụ tối thiểu và sổ 10 rủi ro. Chi phí thật tìm được sẽ đưa về lại cho CFO. | `ops.md` |
+| `/founder-launch` | Trưởng nhóm ra mắt | Bắt đầu bằng một thử nghiệm thật rẻ tiền (đặt trước, điểm bán thử, hoặc khách thí điểm trả tiền), rồi đếm ngược có ngày tháng và người phụ trách, kịch bản ngày khai trương theo giờ và 30 ngày đầu. | `launch.md` |
+
+### Giai đoạn 4: chốt, theo dõi, gọi vốn
+
+| lệnh | vai trò | làm gì | ghi ra |
+| --- | --- | --- | --- |
+| `/founder-plan` | Lập kế hoạch kinh doanh | Gộp mọi thứ thành một kế hoạch có kết luận tính từ số liệu (xem phần dưới), kèm bản tóm tắt và bản một trang. | `summary.md`, `business-plan.md`, `one-pager.md` |
+| `/founder-metrics` | Phân tích hiệu quả | Sau khi mở bán: so doanh số và chi phí thật với kế hoạch từng tháng, kết luận và vẽ lại năm 1 từ các tháng thực tế. | `actuals.csv`, `metrics.md` |
+| `/founder-pitch` | Soạn bài gọi vốn | Chỉ dùng khi bạn gọi vốn hoặc vay. Dàn ý 10 slide và 15 câu hỏi khó nhất, dựng từ chính số liệu của kế hoạch. Từ chối chạy nếu kết luận là Incomplete, và không bao giờ bịa số liệu tăng trưởng hay quy mô thị trường. | `pitch-deck.md`, `pitch-qa.md` |
+| `/founder-run` | Chánh văn phòng | Đặt thị trường một lần, xem trong `founder/` đã có gì, chạy skill kế tiếp đúng thứ tự, và dừng lại nếu một bước tự kiểm tra thất bại (ví dụ mỗi đơn vị bán đang lỗ). | `market.json` |
+
+### Kết luận của kế hoạch được tính như thế nào
+
+Dòng đầu của `business-plan.md` là một trong ba kết luận, do `compile.py` tính, không ai viết tay:
+
+- **Profitable:** mọi kiểm tra có dữ liệu đều đạt.
+- **Not yet:** ít nhất một kiểm tra không đạt, và kế hoạch liệt kê con số không đạt.
+- **Incomplete:** chưa có số liệu CFO.
+
+Năm kiểm tra:
+
+1. Mỗi đơn vị bán có lãi trước chi phí cố định.
+2. Năm 1 có lợi nhuận hoạt động.
+3. Điểm hòa vốn nằm trong công suất (nếu bạn khai công suất).
+4. Đủ khách giả lập mua (mặc định từ 25%, chỉnh bằng `--min-buy-rate`).
+5. Khi đã phỏng vấn từ 5 người thật trở lên: đủ số đó đã trả tiền hoặc đặt cọc (mặc định từ 10%, chỉnh bằng `--min-real-rate`). Dưới 5 người thì kế hoạch chỉ hiện số đếm, không phán xét.
+
+Hai ngưỡng 25% và 10% là mặc định của bộ skill, không phải chuẩn ngành. Bạn đổi được, nhưng nên ghi lại lý do.
+
+## Một ví dụ chạy từ đầu đến cuối
+
+Giả sử bạn muốn mở **Moss Matcha Bar Sài Gòn**, quán matcha mang đi ở Quận 1, TP. Hồ Chí Minh, matcha latte 55.000đ một ly. Mọi đầu vào của ví dụ này nằm sẵn trong repo (`skills/founder-cfo/example.vn.json`, `skills/founder-consumer/customer.example.vn.json`, `pitch.example.vn.md`) nên bạn chạy lại được. Đây là quán giả định, số liệu chỉ để minh họa.
+
+1. **`/founder-board`** ghi `founder/idea.md` từ những gì bạn kể và đưa nó trước ba thành viên hội đồng. Mỗi người chấm điểm và bỏ phiếu. Các điều kiện ("chỉ đầu tư nếu...") trở thành checklist cho phần còn lại.
+2. **`/founder-competitors`** lập bản đồ các quán matcha và quán cà phê trong tầm đi bộ: họ bán latte giá bao nhiêu, bán qua kênh nào, khách phàn nàn gì trong đánh giá.
+3. **`/founder-consumer`** dựng tệp khách mục tiêu (nhân viên văn phòng trẻ, 22 đến 35 tuổi, uống cà phê hoặc trà sữa ít nhất 4 lần một tuần) chia thành ba phân khúc thu nhập, bảy kiểu hành vi mua (khách quen mỗi sáng, săn khuyến mãi, đọc kỹ đánh giá...) và bảy băn khoăn ("55.000đ một ly hơi mắc", "quán quen của mình gần hơn", "đặt qua app giao đồ ăn thì giá bị đội lên"...). Mỗi khách trong 100 khách trả lời bằng tiếng Việt, có tên Việt và mức lương theo tháng bằng VND. Kết quả: ai mua, ai không, và lý do nguyên văn.
+4. **`/founder-pricing`** đọc bốn câu trả lời về giá của mỗi khách để ra khoảng giá chấp nhận được, rồi so 55.000đ với khoảng đó và với giá đối thủ.
+5. **`/founder-offer`** trả lời các băn khoăn hàng đầu bằng ưu đãi (giá tuần khai trương 45.000đ, thẻ tích điểm) và chạy lại một hội đồng nhanh.
+6. **`/founder-cfo`** chạy kinh tế đơn vị trên `numbers.json`. Với số liệu ví dụ:
+
+   - mỗi ly còn lại **32,300₫** sau chi phí riêng của nó (biên đóng góp 59%);
+   - điểm hòa vốn là **88 ly mỗi ngày**;
+   - biên lợi nhuận ở mức dự kiến 200 ly mỗi ngày là **33%**;
+   - năm 1 lãi hoạt động **786,216,000₫** sau giai đoạn tăng chậm (tháng 1 chỉ 70 ly mỗi ngày và còn lỗ);
+   - khoản đầu tư ban đầu 232,000,000₫ được hoàn lại ở **tháng 7**;
+   - người sáng lập cần **249,170,000₫** tiền mặt trước khi dự án tự nuôi được mình;
+   - mức giá thấp nhất vẫn hòa vốn cả năm 1 là 40,940₫.
+
+7. **`/founder-compliance`**, **`/founder-marketing`**, **`/founder-brand`**, **`/founder-ops`** và **`/founder-launch`** biến nó thành danh sách giấy phép cần xác nhận, chiến dịch 30 ngày, một cái tên và diện mạo, nhà cung cấp và quy trình, và đợt ra mắt có ngày tháng cụ thể, bắt đầu bằng một điểm bán thử để thử với khách thật.
+8. **`/founder-interview`** (chạy song song từ sau bước 3, vì phỏng vấn người thật cần nhiều ngày): bạn nói chuyện với 5 đến 10 người, ghi từng cuộc. Bạn bè không được tính, vì họ nói "có" cho vui lòng nhau.
+9. **`/founder-plan`** biên soạn kế hoạch. Với số liệu trên và một hội đồng có 38 khách mua, đây là kết quả thật của lệnh `compile.py --check`:
+
+```
+Verdict: Profitable
+  ✓ Each ly earns 32,300₫ before fixed costs (59% contribution).
+  ✓ Year 1 operating profit: 786,216,000₫.
+  ✓ Break-even is 88 ly a day against a capacity of 350.
+  ✓ 38 of 100 simulated buyers buy (38%, the bar is 25%).
+```
+
+Nếu chỉ 12 trong 100 khách giả lập mua, dòng cuối đổi thành `✗ 12 of 100 simulated buyers buy (12%, the bar is 25%).` và kết luận thành **Not yet**, kèm lời nhắc skill nào sửa được (`/founder-offer`, `/founder-pricing`). Bảng báo cáo của công cụ dùng tiêu đề tiếng Anh; các đoạn giải thích do skill viết sẽ theo ngôn ngữ bạn chọn.
+
+Muốn có bản đẹp để gửi người khác:
+
+```bash
+python3 skills/founder-plan/compile.py --html                    # trang HTML, mở bằng trình duyệt rồi in ra PDF
+python3 skills/founder-plan/compile.py --vault ~/Vault/Plans    # ghi vào kho Obsidian, có frontmatter
+```
+
+File `.md` trong kho Obsidian cũng import được vào Notion dạng markdown.
+
+## Sau khi mở bán
+
+Đây là phần mà hầu hết các bộ công cụ bỏ qua. Khi đã có doanh số thật, ghi vào `founder/actuals.csv`, mỗi tháng một dòng (cập nhật dòng đó khi tháng chạy dần):
+
+```
+month,units,days,revenue,variable_cost,fixed_cost,ad_spend,new_customers
+1,1500,,82500000,34050000,85000000,9000000,420
+2,1900,,104500000,43130000,85000000,6000000,300
+```
+
+Cột nào chưa có thì để trống, công cụ dùng số của kế hoạch và ghi rõ là đã dùng số kế hoạch. Rồi chạy `/founder-metrics`:
+
+```
+Status: change something.
+- Sales are 70% of plan in month 2 (the bar is 80%).
+
+| month | ly a day (plan) | ly a day (real) | vs plan | profit (plan) | profit (real) | cumulative (real) |
+| 1 | 70 | 50.0 | 71% | -17,170,000₫ | -36,550,000₫ | -268,550,000₫ |
+| 2 | 90 | 63.3 | 70% | 2,210,000₫ | -23,630,000₫ | -292,180,000₫ |
+
+Customers cost 20,833₫ each to win.
+Year 1 operating profit: plan 786,216,000₫, reforecast 259,403,000₫.
+```
+
+(Rút gọn từ kết quả thật của `metrics.py` trên số liệu minh họa ở trên.)
+
+Công cụ đưa ra một trong ba kết luận dựa trên dòng mới nhất:
+
+- **Đúng kế hoạch:** doanh số, lãi trên mỗi đơn vị và chi phí tìm khách đều nằm trong ngưỡng.
+- **Cần đổi:** doanh số dưới 80% kế hoạch, hoặc lãi trên mỗi đơn vị thấp hơn kế hoạch quá 15%, hoặc một khách tốn hơn mức trần `max_cac` bạn đặt.
+- **Dừng lại và nghĩ lại:** mỗi đơn vị bán đang lỗ ở giá và chi phí thật, hoặc doanh số dưới 60% kế hoạch trong hai tháng liên tiếp.
+
+Phần "Year 1 now" giữ nguyên các tháng thật và chạy phần còn lại của năm theo kế hoạch, thu nhỏ theo tỷ lệ doanh số thật so với kế hoạch. Đó là phép tính trên số liệu thật, không phải dự đoán. Sau đó skill đối chiếu con số lệch với skill sửa được nó (ít người mua thì `/founder-offer`; khách tốn quá nhiều tiền thì `/founder-marketing`; giá vốn cao thì `/founder-ops`...) và đưa ra một quyết định duy nhất: tiếp tục, đổi một thứ cụ thể rồi xem lại sau vài tuần, hoặc dừng.
+
+## Dành cho thị trường Việt Nam
+
+Cứ nói bạn kinh doanh ở Việt Nam, hoặc chạy `/founder-run` (nó hỏi một lần rồi ghi `founder/market.json`). Từ đó:
+
+- Mỗi skill đọc thêm file `locale-vn.md` nằm ngay trong thư mục của nó, viết riêng cho nhiệm vụ của skill đó. Ví dụ ops nhắc về hộ kinh doanh, hóa đơn điện tử, an toàn thực phẩm, PCCC, Tết; marketing nhắc về Facebook, Zalo, TikTok Shop, Shopee, Google Maps và các dịp 8/3, 20/10, 11/11, 12/12, 20/11; offer nhắc về combo, freeship, tặng kèm, COD và rủi ro của nó.
+- Tiền tính bằng VND, hiển thị như `45,000₫`, không có số lẻ. Phí sàn Shopee, TikTok Shop, Grab và phí thanh toán được đưa vào chi phí biến đổi của từng đơn vị.
+- Hội đồng khách giả lập dùng tên Việt, thu nhập theo tháng bằng VND, và trả lời bằng tiếng Việt (khóa JSON vẫn bằng tiếng Anh để công cụ đọc được).
+- Công cụ giá hiểu `45000`, `45,000`, `45.000`, `45k`, `45000đ`.
+- Mọi file `.md` do skill viết sẽ bằng tiếng Việt.
+
+Ví dụ bằng VND có sẵn: `skills/founder-cfo/example.vn.json`, `skills/founder-consumer/customer.example.vn.json`, `skills/founder-consumer/pitch.example.vn.md`.
+
+Hai điều cần biết:
+
+- Bảng số liệu do công cụ Python sinh ra (báo cáo CFO, kết quả hội đồng, báo cáo metrics) vẫn dùng tiêu đề tiếng Anh. Phần giải thích do skill viết thì theo tiếng Việt.
+- Quy định thuế, hóa đơn, giấy phép của Việt Nam thay đổi thường xuyên (cách tính thuế hộ kinh doanh đã đổi từ 2026). Vì vậy các file `locale-vn.md` chỉ trỏ tới trang chính thức (cổng đăng ký kinh doanh, cổng thuế, cổng hóa đơn điện tử, cổng dịch vụ công, cơ sở dữ liệu văn bản pháp luật, cục sở hữu trí tuệ, cục an toàn thực phẩm, bảo hiểm xã hội) để bạn kiểm tra, không nêu mức thuế hay ngưỡng từ trí nhớ. Hãy xác nhận từng mục với cơ quan có thẩm quyền hoặc kế toán của bạn.
+
+## Bán cho doanh nghiệp (B2B)
+
+Hội đồng người tiêu dùng mặc định là khách cá nhân. Nếu khách của bạn là doanh nghiệp (agency, phần mềm, dịch vụ, bán sỉ):
+
+- Trong `founder/customer.json` đặt `"kind": "business"` và một câu `income_line`, ví dụ `"Nhóm của bạn chi khoảng {amount} mỗi năm cho công cụ kiểu này."` (`{amount}` được thay bằng con số của từng khách). Khi đó phân khúc là các loại công ty, hành vi là cách mua (do người dùng dẫn dắt, do bộ phận mua hàng dẫn dắt, thử trước rồi mua) và băn khoăn là các băn khoăn của người mua doanh nghiệp (duyệt bảo mật, chi phí đổi sang giải pháp khác, chu kỳ ngân sách).
+- Chạy `/founder-sales`: chân dung khách lý tưởng, tin nhắn tiếp cận, kịch bản gọi, và `funnel.py` tính ngược từ mục tiêu ra số cuộc tiếp xúc cần có mỗi tháng và mỗi ngày bán, CAC, LTV trên CAC và thời gian hoàn vốn. Công cụ cảnh báo khi LTV trên CAC dưới 3, thời gian hoàn vốn quá 12 tháng, hoặc số cuộc tiếp xúc cần có vượt khả năng của một người.
+- Với dịch vụ bán theo tháng (client-month, dự án, gói duy trì), trong `numbers.json` đặt `"volume_period": "month"`: khi đó `plan_per_day` và `ramp_per_day` nghĩa là số đơn vị mỗi **tháng**, tên trường giữ nguyên.
+
+## Các công cụ Python
+
+Tám công cụ, đều là Python chuẩn, không kết nối mạng, không gọi lệnh hệ thống.
 
 ```bash
 python3 skills/founder-cfo/unit_economics.py founder/numbers.json --out founder/cfo.md   # biên lợi nhuận, hòa vốn, năm 1
@@ -109,33 +314,49 @@ python3 skills/founder-plan/compile.py --dir founder                            
 python3 skills/founder-run/status.py                                                      # đang ở đâu, bước tiếp theo là gì
 ```
 
-**`unit_economics.py`** đọc một file JSON (ví dụ: `skills/founder-cfo/example.json`, hoặc `example.vn.json` bằng VND) và báo cáo lãi trên mỗi đơn vị, hòa vốn, biên lợi nhuận ở mức dự kiến, năm 1 theo tháng, tiền mặt cần có, thời gian hoàn vốn, mức giá thấp nhất vẫn hòa vốn và các kịch bản "nếu" gồm bảng giá nhân sản lượng. Tiền hiển thị theo `currency` của file (USD, VND...). Mọi con số đều truy về một đầu vào; thiếu trường là báo lỗi, không bao giờ đoán.
+- **`unit_economics.py`** đọc một file JSON (ví dụ `example.json` bằng USD hoặc `example.vn.json` bằng VND) và tính lãi trên mỗi đơn vị, hòa vốn, biên lợi nhuận ở mức dự kiến, năm 1 theo tháng, tiền mặt cần có, tháng hoàn vốn, mức giá thấp nhất vẫn hòa vốn, các kịch bản "nếu" (giá giảm 10%, sản lượng giảm 20%, chi phí đơn vị tăng 15%) và bảng lợi nhuận theo giá nhân sản lượng. Thiếu trường là báo lỗi, không đoán. `--price` và `--volume` cho chạy thử một kịch bản mà không phải sửa file.
+- **`panel.py`** chia thẻ khách từ tệp khách mục tiêu (cùng seed thì ra cùng thẻ, nên chạy lại được), viết một bản brief cho mỗi khách, kiểm tra câu trả lời và tổng hợp. Nó không bao giờ trả lời thay một khách.
+- **`van_westendorp.py`** đọc bốn câu trả lời về giá của mỗi khách (từ hội đồng, hoặc file CSV từ khảo sát thật) và tìm điểm quá rẻ, quá đắt, giá tối ưu và giá thờ ơ. Nên ưu tiên dữ liệu khảo sát thật hơn dữ liệu giả lập.
+- **`interview.py`** lưu một hồ sơ cho mỗi cuộc trò chuyện thật (mức cam kết: không, quan tâm, đăng ký chờ, đặt trước, đã trả tiền) và tổng hợp. Bạn bè được liệt kê nhưng không tính vào tỷ lệ.
+- **`funnel.py`** tính ngược mục tiêu bán hàng qua các giai đoạn ra số cuộc tiếp xúc đầu tiên bạn cần.
+- **`metrics.py`** so `numbers.json` với `actuals.csv`, đưa ra kết luận, bảng kế hoạch so với thực tế và dự báo lại năm 1.
+- **`compile.py`** gộp kế hoạch, tính kết luận và xuất HTML hoặc ghi vào kho Obsidian.
+- **`status.py`** đọc `founder/` và cho biết skill kế tiếp; nó cũng ghi được `founder/market.json`.
 
-**`panel.py`** chia thẻ khách từ tệp khách mục tiêu của bạn (cùng seed thì ra cùng thẻ), viết một bản brief cho mỗi khách, kiểm tra câu trả lời và tổng hợp. Nó không bao giờ trả lời thay một khách.
-
-**`van_westendorp.py`** đọc bốn câu trả lời về giá của mỗi khách (từ hội đồng, hoặc file CSV từ khảo sát thật) và tìm các điểm quá rẻ, quá đắt, giá tối ưu và giá thờ ơ. Hiểu được `45000`, `45.000`, `45k`, `45000đ`.
-
-**`interview.py`** lưu một hồ sơ cho mỗi cuộc trò chuyện thật và tổng hợp. Bạn bè được liệt kê nhưng không tính, vì họ nói "có" cho vui lòng nhau.
-
-**`funnel.py`** tính ngược mục tiêu bán hàng qua các giai đoạn ra số cuộc tiếp xúc đầu tiên bạn cần, cùng CAC và thời gian hoàn vốn nếu bạn đưa vào chi phí.
-
-**`metrics.py`** so `numbers.json` với `actuals.csv`, đưa ra kết luận, bảng kế hoạch so với thực tế và dự báo lại năm 1.
-
-**`compile.py`** gộp kế hoạch và tính kết luận.
-
-**`status.py`** đọc `founder/` và cho biết skill kế tiếp; nó cũng ghi được `founder/market.json`.
-
-Chạy kiểm thử:
+Chạy kiểm thử (95 bài, chưa đến một giây):
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
 
-## Lưu ý quan trọng
+## Câu hỏi thường gặp
+
+**Chạy hội đồng 100 khách có tốn nhiều không?**
+Là 100 lượt gọi sub-agent, chia thành 10 đợt, mỗi đợt 10 khách. Hãy chạy `--quick` (20 khách) trước để xem thử. Mỗi sub-agent ghi một file nhỏ vào `founder/panel/answers/`, nên ở chế độ cấp quyền mặc định bạn sẽ phải duyệt nhiều lần; bật chế độ accept-edits (Shift+Tab) trong lúc chạy.
+
+**Kết quả của hội đồng có đáng tin không?**
+Nó tốt ở việc phát hiện băn khoăn, phân khúc và cách diễn đạt bạn chưa nghĩ tới. Nó kém ở việc dự đoán tỷ lệ mua thật, vì mô hình ngôn ngữ có xu hướng dễ đồng ý. Hãy coi tỷ lệ mua là mức trần, và dùng `/founder-interview` hoặc thử nghiệm của `/founder-launch` (đặt trước, điểm bán thử, trang đăng ký có giá) để xác nhận. Nếu người thật thấp hơn hội đồng nhiều, hãy tin người thật.
+
+**Bộ skill có hợp với mọi ngành không?**
+Hợp nhất với ngành có đơn vị bán rõ ràng và chi phí tính được: quán ăn, cửa hàng, bán hàng online, dịch vụ, agency, đăng ký thuê bao. Với sản phẩm phải đầu tư nghiên cứu nhiều năm hoặc mô hình mà doanh thu không tính theo đơn vị, phần CFO sẽ gượng ép.
+
+**Tại sao kết luận là Not yet dù tôi thấy ý tưởng tốt?**
+Vì một trong năm kiểm tra không đạt, và kế hoạch ghi rõ kiểm tra nào cùng con số. Đó là mục đích của nó: không làm dịu một con số đang đỏ. Sửa đầu vào (giá, chi phí, ưu đãi), chạy lại `/founder-cfo` rồi `/founder-plan`.
+
+**Tôi đổi giá giữa chừng thì sao?**
+Cập nhật `founder/numbers.json` (hoặc để `/founder-pricing` làm), chạy lại `/founder-cfo`, rồi `/founder-plan`. `/founder-run` nhắc việc này.
+
+**Dữ liệu của tôi đi đâu?**
+Các công cụ Python chạy trên máy bạn và không kết nối mạng. Nội dung bạn trao đổi với skill vẫn đi qua Claude như mọi cuộc trò chuyện khác, và các bước nghiên cứu (đối thủ, giấy phép) dùng tìm kiếm web công khai.
+
+**Tôi có thể thêm hoặc sửa skill không?**
+Được. Mỗi skill là một thư mục với `SKILL.md` (và công cụ nếu có). Giấy phép MIT: cứ lấy, sửa, rồi mang đi dùng. Test cấu trúc trong `tests/test_repo.py` sẽ báo nếu bạn làm hỏng một skill, ví dụ thiếu `name`, trỏ tới công cụ không tồn tại hoặc dùng dấu gạch dài.
+
+## Những điều bộ skill này không làm được
 
 **Hội đồng quản trị áp dụng các khung đã công bố, không phải là những người đó.** Ba lăng kính là bản tóm tắt ngắn, bằng lời của chúng tôi, về các ý tưởng trong *$100M Offers* của Alex Hormozi, *Zero to One* của Peter Thiel và Blake Masters, và tiểu sử Steve Jobs của Walter Isaacson. Hội đồng không bao giờ nói như họ, trích lời họ hay nói họ ủng hộ điều gì. Dự án này không liên kết với bất kỳ ai trong số họ.
 
-**Hội đồng người tiêu dùng là khách giả lập, không phải khách thật.** Đây là cách nhanh và rẻ để tìm băn khoăn, phân khúc và cách diễn đạt trước khi bạn chi tiền. Nó không phải dự báo: mô hình ngôn ngữ có xu hướng dễ đồng ý, nên hãy coi tỷ lệ mua là mức trần, và xác nhận các quyết định lớn với người thật: `/founder-interview` sinh ra cho việc đó, và `/founder-launch` cũng bắt đầu bằng một thử nghiệm thật. Câu trả lời của hội đồng là tài liệu nghiên cứu; không bao giờ dùng làm lời chứng thực của khách hàng.
+**Hội đồng người tiêu dùng là khách giả lập, không phải khách thật.** Nó là cách nhanh và rẻ để tìm băn khoăn trước khi bạn chi tiền, không phải dự báo. Câu trả lời của hội đồng là tài liệu nghiên cứu; không bao giờ dùng làm lời chứng thực của khách hàng.
 
 **Con số chỉ tốt bằng đầu vào.** CFO đánh dấu mọi ước tính là ước tính và đòi báo giá thật. Hãy kiểm tra chi phí với nhà cung cấp, còn cấu trúc công ty, lương và thuế thì với kế toán.
 
@@ -143,7 +364,9 @@ python3 -m unittest discover -s tests -v
 
 **Không phải tư vấn tài chính, pháp lý hay thuế.** Giấy phép, nhãn hiệu và các tuyên bố quảng cáo phụ thuộc vào nơi bạn ở. Các skill cho bạn biết cần kiểm tra gì và ở đâu; một chuyên gia xác nhận.
 
-## Cấu trúc thư mục
+**Chưa có gì thay thế được việc nói chuyện với khách thật.** Bộ skill giúp bạn đến buổi nói chuyện đó với câu hỏi tốt hơn và ít tốn kém hơn, không thay thế nó.
+
+## Cấu trúc repo
 
 ```
 skills/founder-board/        SKILL.md, lenses.md, locale-vn.md
@@ -165,8 +388,6 @@ skills/founder-pitch/        SKILL.md
 skills/founder-run/          SKILL.md, status.py
 tests/                       kiểm thử cho mọi công cụ
 ```
-
-Các file của riêng bạn nằm trong `founder/` ở dự án của bạn. Các skill đọc file của nhau.
 
 ## Tác giả
 
