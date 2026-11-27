@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "opc-founder-skill",
-      "description": "Eleven Claude skills that test a business before you launch it: a board, a competitor scout, a consumer panel of 100 buyer agents, pricing, the offer, a CFO, marketing, brand, operations, a launch plan and the business plan.",
+      "description": "Seventeen Claude skills that test a business before you launch it and track it after: a board, a competitor scout, a consumer panel of 100 buyer agents, real-customer interviews, pricing, the offer, a CFO, compliance, marketing, sales, brand, operations, a launch plan, the business plan, a metrics review, a pitch and a runner for the whole pack.",
       "source": "./",
       "category": "productivity",
       "homepage": "https://github.com/lucas10xai/opc-founder-skill"

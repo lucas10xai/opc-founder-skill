@@ -1,0 +1,11 @@
+{
+  "id": "I02",
+  "commitment": "waitlist",
+  "source": "customer",
+  "date": "2026-03-03",
+  "segment": "student",
+  "price_said": 5,
+  "objection": "too expensive",
+  "reason": "Buys a cheaper coffee at the canteen most days.",
+  "quote": "Put me on the list, I will come on weekends."
+}

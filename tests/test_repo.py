@@ -6,9 +6,10 @@ import unittest
 from _load import ROOT, SKILLS_DIR
 
 SKILLS = ["founder-board", "founder-marketing", "founder-cfo", "founder-consumer", "founder-launch",
-          "founder-pricing", "founder-offer", "founder-competitors", "founder-brand", "founder-ops", "founder-plan"]
-ABOUT = ("Eleven free Claude skills that test a business before you launch it: a board trained on Hormozi, "
-         "Thiel and Jobs, a marketing director, a CFO, and a consumer panel of 100 buyer agents. Free, MIT.")
+          "founder-pricing", "founder-offer", "founder-competitors", "founder-brand", "founder-ops", "founder-plan",
+          "founder-interview", "founder-compliance", "founder-sales", "founder-metrics", "founder-pitch", "founder-run"]
+ABOUT = ("Seventeen free Claude skills that test a business before you launch it and track it after: a board trained "
+         "on Hormozi, Thiel and Jobs, a marketing director, a CFO, and a consumer panel of 100 buyer agents. Free, MIT.")
 
 
 def frontmatter(path):
@@ -30,7 +31,7 @@ def text_files():
 
 
 class Repo(unittest.TestCase):
-    def test_eleven_skill_folders(self):
+    def test_every_skill_folder_is_listed(self):
         found = sorted(d for d in os.listdir(SKILLS_DIR) if os.path.isfile(os.path.join(SKILLS_DIR, d, "SKILL.md")))
         self.assertEqual(found, sorted(SKILLS))
 
@@ -65,8 +66,8 @@ class Repo(unittest.TestCase):
             readme = " ".join(fh.read().split())
         self.assertTrue(readme.startswith("# The Founder skill"))
         for line in (
-            "Eleven Claude skills that test a business before you launch it. Free, MIT, no signup, no API key, "
-            "nothing to connect.",
+            "Seventeen Claude skills that test a business before you launch it, and check it once it is live. "
+            "Free, MIT, no signup, no API key, nothing to connect.",
             "One of them is your board of directors, trained on the frameworks of Alex Hormozi, Peter Thiel and "
             "Steve Jobs. One is your marketing director. One is your CFO and finds your real profit margins. And "
             "one is the consumer panel: it spins up 100 buyer agents trained on your target customer and runs your "

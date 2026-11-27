@@ -31,6 +31,7 @@ matcha café). It needs:
 | field | what goes in it |
 | --- | --- |
 | `unit` | what one sale is: a cup, an order, a client-month, a seat |
+| `unit_plural` | optional: the plural when it is not the unit plus "s" (in Vietnamese the same word) |
 | `price` | price per unit before tax |
 | `variable` | the cost of ONE unit: ingredients, packaging, shipping, card fees, per-sale commissions |
 | `fixed_monthly` | what you pay every month regardless: rent, salaries, software, insurance |
@@ -38,6 +39,8 @@ matcha café). It needs:
 | `plan_per_day` | the volume once it is up and running |
 | `ramp_per_day` | 12 numbers: realistic volume in each month of year 1 |
 | `capacity_per_day` | the most you can physically sell in a day, if there is a limit |
+| `currency` | optional: `"USD"` (default), `"VND"`, `"EUR"`, `"GBP"` or any code. Copy it from `founder/market.json` if that exists. VND is whole numbers, shown like `45,000₫` |
+| `volume_period` | optional: `"day"` (default) or `"month"`. With `"month"`, the volume fields (`plan_per_day`, `ramp_per_day`, `capacity_per_day`) count units per month: use it for client-months, projects and retainers |
 
 Where the numbers come from, in this order:
 
@@ -69,6 +72,10 @@ startup money is earned back, and a what-if table (price -10%, volume -20%, unit
 costs +15%). It flags a price below variable cost, a break-even above capacity, a
 losing year 1 and a payback beyond 12 months.
 
+It also gives the lowest price that still breaks even over year 1 at the planned
+volume, and a grid of year 1 profit across price (-20% to +20%) and volume (60% to
+120% of plan), so the founder sees where the business turns from profit to loss.
+
 What-ifs without editing the file:
 
 ```bash
@@ -94,6 +101,14 @@ Add a short section at the top of `founder/cfo.md`, in plain words:
 - Revenue is before tax; say if the user's market adds sales tax on top.
 - Not financial, tax or legal advice. Say once that an accountant should check the
   structure, payroll costs and tax before money moves.
+
+## Market and language
+
+If `founder/market.json` exists and says country `VN`, or the user is in Vietnam
+or writes Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`, set
+`"currency": "VND"` in `numbers.json`, write `founder/cfo.md` in the user's
+language, and put the platform commissions and payment fees in the per-unit
+variable costs.
 
 ## Output
 

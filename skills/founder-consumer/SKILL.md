@@ -41,6 +41,16 @@ Write `founder/customer.json` (shape: `customer.example.json` in this folder):
   (daily regular, deal hunter, reads every review, loyal to a competitor...).
 - `objections`: the 4 to 8 doubts this kind of buyer really has.
 - `habits` (optional): everyday context lines that make a buyer concrete.
+- Optional, for the market and for selling to businesses:
+  - `currency` (`"USD"` default, `"VND"`, ...), `income_period` (`"year"` default or
+    `"month"`) and `language` (the panel answers in it; the JSON keys stay English).
+  - `names`: a list of full names to deal from, so a Vietnamese panel has Vietnamese
+    names. Fewer names than buyers is fine; the rest get a number.
+  - `kind`: `"consumer"` (default) or `"business"`. For `"business"`, segments are
+    company types, behaviours are buying styles and `income` is the yearly spend, with
+    an `income_line` such as `"Your team spends about {amount} a year on tools like
+    this."` (`{amount}` is filled with the buyer's number).
+  - Vietnam: copy `customer.example.vn.json` and see `locale-vn.md` in this folder.
 
 Ground it in something real. Use what the user knows about their customers, and
 if `/founder-competitors` ran, the complaints in `founder/competitors.md`. If the
@@ -118,6 +128,20 @@ and not to invent facts, and the exact JSON to write: buys, purchases in the fir
 month, a reason code, the reason in their own voice, their main objection, what
 would change their mind, and four price answers (too cheap, a bargain, getting
 expensive, too expensive). Never edit a brief for one buyer.
+
+## Market and language
+
+If `founder/market.json` exists and says country `VN`, or the user is in Vietnam
+or writes Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`, set `currency`,
+`income_period` and `language` in `customer.json`, and write `founder/pitch.md`,
+the results and everything you tell the user in that language.
+
+## Real people
+
+The panel is the first look, not the last. After the tally, offer
+`/founder-interview` so five to ten real people test the biggest finding. When
+`founder/interviews/results.json` exists, set the real commitment rate beside the
+panel's buy rate and say which one the founder should trust (the real one).
 
 ## Output
 

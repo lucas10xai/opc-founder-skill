@@ -1,0 +1,18 @@
+{
+  "business": "Example Bookkeeping Studio (made up)",
+  "currency": "USD",
+  "target_customers_per_month": 4,
+  "deal_value": 600,
+  "contribution_per_customer_month": 420,
+  "expected_customer_months": 18,
+  "stages": [
+    {"name": "First contact to reply", "conversion": 0.25},
+    {"name": "Reply to discovery call", "conversion": 0.5},
+    {"name": "Discovery call to proposal", "conversion": 0.6},
+    {"name": "Proposal to signed", "conversion": 0.4}
+  ],
+  "cycle_days": 30,
+  "touches_per_day": 6,
+  "selling_days_per_month": 21,
+  "ad_or_tool_spend_month": 800
+}

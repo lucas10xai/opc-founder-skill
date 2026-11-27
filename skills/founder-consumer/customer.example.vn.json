@@ -1,0 +1,48 @@
+{
+  "business": "Moss Matcha Bar Sài Gòn (ví dụ: quán matcha mang đi)",
+  "target": "Nhân viên văn phòng trẻ, 22 đến 35 tuổi, uống cà phê hoặc trà sữa ít nhất 4 lần một tuần",
+  "where": "Quận 1, TP. Hồ Chí Minh",
+  "currency": "VND",
+  "income_period": "month",
+  "language": "Vietnamese",
+  "age": [22, 35],
+  "names": [
+    "Nguyễn Minh Anh", "Trần Quốc Bảo", "Lê Thu Hà", "Phạm Đức Huy", "Hoàng Ngọc Lan", "Vũ Anh Tuấn",
+    "Đặng Thanh Thảo", "Bùi Gia Hân", "Đỗ Hoàng Nam", "Ngô Phương Linh", "Dương Khánh Vy", "Lý Minh Khoa",
+    "Phan Bảo Ngọc", "Võ Thành Đạt", "Huỳnh Mai Chi", "Trương Tuấn Kiệt", "Mai Thùy Dung", "Đinh Quang Vinh",
+    "Lương Hải Yến", "Tô Minh Triết", "Cao Diễm My", "Hồ Anh Khoa", "Tạ Ngọc Trâm", "Nguyễn Đức Thịnh",
+    "Trần Hồng Nhung", "Lê Bảo Châu", "Phạm Thanh Tùng", "Hoàng Gia Bảo", "Vũ Khánh Linh", "Đặng Minh Quân",
+    "Bùi Thảo Nguyên", "Đỗ Tiến Dũng", "Ngô Hải Đăng", "Dương Thúy Hằng", "Lý Hoài An", "Phan Nhật Minh",
+    "Võ Kim Ngân", "Huỳnh Đình Phúc", "Trương Bích Phượng", "Mai Xuân Sơn"
+  ],
+  "segments": [
+    {"name": "Nhân viên văn phòng mới đi làm", "share": 0.45, "income": [9000000, 18000000]},
+    {"name": "Nhân viên văn phòng cấp trung", "share": 0.40, "income": [18000000, 40000000]},
+    {"name": "Thu nhập cao", "share": 0.15, "income": [40000000, 90000000]}
+  ],
+  "behaviours": [
+    {"name": "Khách quen mỗi sáng", "share": 0.20, "how": "Mua cùng một món ở cùng một quán gần như mỗi sáng."},
+    {"name": "Ưu tiên sức khỏe", "share": 0.18, "how": "Đọc thành phần, đổi cà phê sang món nào thấy lành hơn."},
+    {"name": "Thích thử cái mới", "share": 0.15, "how": "Thử món đang hot và hay đăng lên mạng."},
+    {"name": "Chỉ mua cuối tuần", "share": 0.15, "how": "Ngày thường uống rẻ, cuối tuần mới uống món ngon hơn."},
+    {"name": "Săn khuyến mãi", "share": 0.12, "how": "Chờ voucher, dùng app giao đồ ăn để đặt giá tốt."},
+    {"name": "Trung thành với quán quen", "share": 0.10, "how": "Có quán ruột, nhân viên nhớ món của mình."},
+    {"name": "Đọc kỹ đánh giá", "share": 0.10, "how": "Xem Google Maps và review trên Facebook trước khi thử quán mới."}
+  ],
+  "objections": [
+    "55.000đ một ly hơi mắc",
+    "Quán quen của mình gần hơn",
+    "Matcha có thật sự ngon không",
+    "Có tốt cho sức khỏe hơn cà phê không",
+    "Mình cần chỗ ngồi làm việc",
+    "Mình chỉ thử một lần thôi, không uống thường xuyên",
+    "Đặt qua app giao đồ ăn thì giá bị đội lên"
+  ],
+  "habits": [
+    "bạn đi ngang qua Quận 1 trên đường đến công ty",
+    "bạn làm việc ở nhà hai ngày một tuần",
+    "bạn hay đặt đồ uống qua app giao đồ ăn khi bận họp",
+    "bạn tập gym gần chỗ làm trước giờ vào ca",
+    "bạn tham gia vài nhóm Zalo và Facebook của dân văn phòng khu vực"
+  ]
+}

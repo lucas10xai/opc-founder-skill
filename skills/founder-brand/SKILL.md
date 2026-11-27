@@ -65,6 +65,13 @@ and nothing is registered until the user registers it.
 - No fonts, images or icons the user has no right to use.
 - Not legal advice on trademarks.
 
+## Market and language
+
+If `founder/market.json` exists and says country `VN`, or the user is clearly in Vietnam or writes
+Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`. Write every file in the user's language
+(Vietnamese when they write Vietnamese) and use the currency from `founder/market.json`
+(VND is shown like `45,000₫`). Treat the Vietnam notes as prompts to check, not as sourced rules.
+
 ## Output
 
 `founder/brand.md`. Next: `/founder-ops` and `/founder-launch`.

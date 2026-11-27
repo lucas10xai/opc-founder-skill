@@ -1,0 +1,29 @@
+{
+  "business": "Moss Matcha Bar Sài Gòn (ví dụ: quán matcha mang đi)",
+  "currency": "VND",
+  "unit": "ly",
+  "unit_plural": "ly",
+  "price": 55000,
+  "variable": [
+    {"label": "Matcha (2g)", "cost": 11000},
+    {"label": "Sữa yến mạch", "cost": 5000},
+    {"label": "Ly, nắp, ống hút", "cost": 3500},
+    {"label": "Phí thanh toán và phí nền tảng giao hàng (trung bình)", "cost": 3200}
+  ],
+  "fixed_monthly": [
+    {"label": "Lương nhân viên", "cost": 60000000},
+    {"label": "Thuê mặt bằng và điện nước", "cost": 25000000}
+  ],
+  "startup": [
+    {"label": "Đặt cọc mặt bằng", "cost": 80000000},
+    {"label": "Cải tạo", "cost": 60000000},
+    {"label": "Thiết bị", "cost": 45000000},
+    {"label": "Biển hiệu", "cost": 12000000},
+    {"label": "Hàng tồn kho ban đầu", "cost": 20000000},
+    {"label": "Quảng cáo khai trương", "cost": 15000000}
+  ],
+  "days_per_month": 30,
+  "capacity_per_day": 350,
+  "plan_per_day": 200,
+  "ramp_per_day": [70, 90, 110, 130, 150, 165, 175, 185, 192, 197, 200, 200]
+}

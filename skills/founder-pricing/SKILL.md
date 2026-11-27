@@ -72,6 +72,20 @@ Write `founder/pricing.md`:
    them (two landing pages, a pre-sale at each, A/B on the menu board).
 5. The panel's verbatim price objections (top three), so marketing can answer them.
 
+## Currency
+
+The tool reads the panel's currency from `founder/panel/panel.json` (or pass
+`--currency VND`). Answers written as `45000`, `45,000`, `45.000`, `45k` or
+`45000đ` all read as forty-five thousand. A price with a dot and exactly three
+digits after it (`6.500`) is read as thousands, so write prices in US dollars with
+two decimals (`6.50`).
+
+## Market and language
+
+If `founder/market.json` exists and says country `VN`, or the user is in Vietnam
+or writes Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`, write
+`founder/pricing.md` in the user's language and give every price in VND.
+
 ## Rules
 
 - Price answers from simulated buyers pick what to test. They are not proof.

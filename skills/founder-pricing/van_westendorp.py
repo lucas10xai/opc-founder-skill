@@ -32,6 +32,7 @@ import csv
 import glob
 import json
 import os
+import re
 import sys
 
 KEYS = ("too_cheap", "cheap", "expensive", "too_expensive")
@@ -42,11 +43,41 @@ class PricingError(Exception):
 
 
 def _f(v):
+    """A price answer as a number. Takes 6.50, $6.50, 45,000, 45.000, 45000d, 45k."""
+    s = str(v).strip()
+    for junk in ("$", "₫", "đ", "vnđ", "vnd", "usd"):
+        s = re.sub(re.escape(junk), "", s, flags=re.I)
+    s = s.replace(" ", "")
+    scale = 1
+    if s[-1:].lower() == "k":
+        s, scale = s[:-1], 1000
+    if re.fullmatch(r"[1-9]\d{0,2}(\.\d{3})+", s):  # 45.000 is forty-five thousand, as written in Vietnam
+        s = s.replace(".", "")
     try:
-        x = float(str(v).replace("$", "").replace(",", "").strip())
+        x = float(s.replace(",", "")) * scale
     except (TypeError, ValueError):
         return None
     return x if x > 0 else None
+
+
+def _currency_of(source):
+    """The currency the panel used, read from panel.json next to the answers folder."""
+    path = os.path.join(os.path.dirname(os.path.abspath(source)), "panel.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return str(json.load(fh)["customer"].get("currency", "USD")).upper()
+    except (OSError, ValueError, KeyError, AttributeError):
+        return "USD"
+
+
+def _price(v, currency="USD"):
+    if v is None:
+        return "n/a"
+    code = str(currency).upper()
+    if code == "VND":
+        return "{:,.0f}₫".format(v)
+    symbol = {"USD": "$", "EUR": "€", "GBP": "£"}.get(code, code + " ")
+    return "%s%s" % (symbol, "{:,.2f}".format(v))
 
 
 def read(path):
@@ -121,8 +152,8 @@ def analyse(rows, step=None):
             "median": {k: sorted(r[i] for r in rows)[len(rows) // 2] for i, k in enumerate(KEYS)}}
 
 
-def report(res, dropped, price=None):
-    m = lambda v: "n/a" if v is None else "$%.2f" % v
+def report(res, dropped, price=None, currency="USD"):
+    m = lambda v: _price(v, currency)
     p = res["points"]
     L = ["# Price sensitivity", "",
          "%d complete answers%s. Simulated buyers: use this to pick what to test, not as the final word." % (
@@ -146,6 +177,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("source", help="the panel's answers folder, or a CSV")
     ap.add_argument("--price", type=float, help="your current price, to place it on the range")
+    ap.add_argument("--currency", help="USD, VND, EUR...; default: the panel's currency, else USD")
     ap.add_argument("--out", help="write the report here (markdown)")
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args(argv)
@@ -158,7 +190,8 @@ def main(argv=None):
     if a.json:
         print(json.dumps(dict(res, dropped=dropped), indent=1))
         return 0
-    text = report(res, dropped, a.price)
+    currency = (a.currency or (_currency_of(a.source) if os.path.isdir(a.source) else "USD")).upper()
+    text = report(res, dropped, a.price, currency)
     if a.out:
         with open(a.out, "w", encoding="utf-8") as fh:
             fh.write(text)

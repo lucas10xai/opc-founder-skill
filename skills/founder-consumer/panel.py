@@ -61,6 +61,17 @@ def _quota(items, n, key="share"):
     return counts
 
 
+SYMBOLS = {"USD": ("$", "prefix"), "EUR": ("€", "prefix"), "GBP": ("£", "prefix"), "VND": ("₫", "suffix")}
+
+
+def _amount(v, currency="USD"):
+    """A whole-number amount in the customer's currency: $85,000 or 15,000,000₫."""
+    code = str(currency or "USD").strip().upper()
+    sym, where = SYMBOLS.get(code, (code + " ", "prefix"))
+    num = "{:,}".format(int(round(v)))
+    return num + sym if where == "suffix" else sym + num
+
+
 def validate_customer(c):
     for k in ("business", "target", "segments", "behaviours", "objections"):
         if k not in c or c[k] in ("", [], None):
@@ -71,6 +82,12 @@ def validate_customer(c):
     for b in c["behaviours"]:
         if "name" not in b:
             raise PanelError("every behaviour needs a name")
+    if c.get("kind", "consumer") not in ("consumer", "business"):
+        raise PanelError("'kind' must be \"consumer\" or \"business\"")
+    if c.get("income_period", "year") not in ("year", "month"):
+        raise PanelError("'income_period' must be \"year\" or \"month\"")
+    if "names" in c and (not isinstance(c["names"], list) or not all(isinstance(x, str) and x.strip() for x in c["names"])):
+        raise PanelError("'names' must be a list of names")
 
 
 def deal(customer, n=100, seed=7):
@@ -88,10 +105,11 @@ def deal(customer, n=100, seed=7):
         behs += [b] * k
     rng.shuffle(segs)
     rng.shuffle(behs)
-    names = FIRST_NAMES[:]
+    base_names = [x.strip() for x in customer["names"]] if customer.get("names") else FIRST_NAMES
+    names = base_names[:]
     rng.shuffle(names)
     while len(names) < n:
-        names += ["%s %d" % (x, len(names) // len(FIRST_NAMES) + 1) for x in FIRST_NAMES]
+        names += ["%s %d" % (x, len(names) // len(base_names) + 1) for x in base_names]
     objections = customer["objections"]
     habits = customer.get("habits") or []
     cards = []
@@ -161,7 +179,7 @@ def load_state(d):
 BRIEF = """You are a simulated buyer on a consumer panel. A founder wants to know, before spending any money, whether real people like you would buy. Your answer is only useful if it is honest: most people do not buy most things, and a polite yes is worse than a clear no.
 
 === WHO YOU ARE ===
-{name}, {age}. {segment}. You earn about ${income:,} a year.
+{name}, {age}. {segment}. {income_line}
 How you buy: {behaviour}. {behaviour_how}
 {habit_line}The first thing that comes to mind when you hear an offer like this: "{objection}"
 You are one of these people: {target}.
@@ -172,6 +190,7 @@ You are one of these people: {target}.
 === END ===
 
 Decide as {name} would, with {name}'s money, habits and doubts, in a normal week. Do not be agreeable. Do not invent facts about the business beyond what is written above.
+{language_line}
 
 Create the file {out} with your file-writing tool (do not just print the answer in your reply) containing ONLY this JSON, no markdown fence, nothing else:
 {{
@@ -182,10 +201,10 @@ Create the file {out} with your file-writing tool (do not just print the answer 
   "reason": "why, in one or two sentences, in your own voice",
   "objection": "the doubt that weighs most for you, in your own words",
   "would_change_my_mind": "the one thing that would flip your answer, or empty",
-  "price_too_cheap": the price at which it would seem too cheap to be any good (a number),
-  "price_cheap": the price at which it would feel like a bargain (a number),
-  "price_expensive": the price at which it starts to feel expensive but you might still buy (a number),
-  "price_too_expensive": the price at which you would not buy it at all (a number)
+  "price_too_cheap": the price at which it would seem too cheap to be any good (a number in {currency}),
+  "price_cheap": the price at which it would feel like a bargain (a number in {currency}),
+  "price_expensive": the price at which it starts to feel expensive but you might still buy (a number in {currency}),
+  "price_too_expensive": the price at which you would not buy it at all (a number in {currency})
 }}
 """
 
@@ -198,9 +217,18 @@ def write_briefs(d, wave=WAVE):
         out = _path(d, "answers", c["id"] + ".json")
         if _answer_ok(out, c["id"]) is None:
             continue
+        customer = state["customer"]
+        currency = str(customer.get("currency", "USD")).strip().upper()
+        period = customer.get("income_period", "year")
+        line = customer.get("income_line") or "You earn about {amount} a {period}."
+        income_line = line.replace("{amount}", _amount(c["income"], currency)).replace("{period}", period)
+        language = (customer.get("language") or "").strip()
+        language_line = ("Write the free-text answers in %s, in %s's own voice. Keep the JSON keys and the reason_code values exactly as shown, in English.\n" % (language, c["name"])
+                         if language and language.lower() != "english" else "")
         brief = BRIEF.format(pitch=state["pitch"], target=target, out=os.path.abspath(out),
                              habit_line=("Your day: %s.\n" % c["habit"]) if c.get("habit") else "",
-                             reasons=" / ".join(REASONS), **c)
+                             reasons=" / ".join(REASONS), income_line=income_line, language_line=language_line,
+                             currency=currency, **{k: v for k, v in c.items() if k != "income_line"})
         bp = _path(d, "briefs", c["id"] + ".md")
         with open(bp, "w", encoding="utf-8") as fh:
             fh.write(brief)
@@ -297,8 +325,9 @@ def tally(d):
     incomes = sorted(r["income"] for r in rows)
     cut1, cut2 = incomes[len(incomes) // 3], incomes[2 * len(incomes) // 3]
     for r in rows:
-        r["income_band"] = ("under $%s" % "{:,}".format(cut1)) if r["income"] < cut1 else (
-            ("$%s and up" % "{:,}".format(cut2)) if r["income"] >= cut2 else "$%s to $%s" % ("{:,}".format(cut1), "{:,}".format(cut2)))
+        cur = state["customer"].get("currency", "USD")
+        r["income_band"] = ("under %s" % _amount(cut1, cur)) if r["income"] < cut1 else (
+            ("%s and up" % _amount(cut2, cur)) if r["income"] >= cut2 else "%s to %s" % (_amount(cut1, cur), _amount(cut2, cur)))
 
     no = [r for r in rows if not r["buys"]]
     yes = [r for r in rows if r["buys"]]

@@ -1,12 +1,14 @@
 # The Founder skill
 
-Eleven Claude skills that test a business before you launch it. Free, MIT, no
-signup, no API key, nothing to connect.
+Seventeen Claude skills that test a business before you launch it, and check it
+once it is live. Free, MIT, no signup, no API key, nothing to connect.
 
 `skills/founder-board` `skills/founder-marketing` `skills/founder-cfo`
 `skills/founder-consumer` `skills/founder-launch` `skills/founder-pricing`
 `skills/founder-offer` `skills/founder-competitors` `skills/founder-brand`
-`skills/founder-ops` `skills/founder-plan`
+`skills/founder-ops` `skills/founder-plan` `skills/founder-interview`
+`skills/founder-compliance` `skills/founder-sales` `skills/founder-metrics`
+`skills/founder-pitch` `skills/founder-run`
 
 One of them is your board of directors, trained on the frameworks of Alex
 Hormozi, Peter Thiel and Steve Jobs. One is your marketing director. One is your
@@ -50,7 +52,12 @@ but the method works.
 
 The tools need Python 3.8 or newer. Nothing to pip install.
 
-## The eleven
+Working in Vietnam? Say so (or run `/founder-run`, which asks once and writes
+`founder/market.json`). Every skill then reads its `locale-vn.md`, counts in VND,
+and writes in Vietnamese. Examples in VND: `skills/founder-cfo/example.vn.json` and
+`skills/founder-consumer/customer.example.vn.json`.
+
+## The seventeen
 
 | command | job | what it does |
 | --- | --- | --- |
@@ -65,6 +72,12 @@ The tools need Python 3.8 or newer. Nothing to pip install.
 | `/founder-ops` | Operations Manager | Suppliers, staffing, day-one routines, tools, the permits to check and a risk register, feeding real costs back to the CFO. |
 | `/founder-launch` | Launch Lead | A cheap real-world test first, then a dated countdown, the launch-day run sheet and the first 30 days. |
 | `/founder-plan` | Business Planner | Compiles everything into one business plan with a verdict computed from the numbers: Profitable, Not yet or Incomplete. |
+| `/founder-interview` | Customer Discovery Coach | The panel is simulated; this checks it against 5 to 10 real people. A screener and interview script, a record for each conversation, and the real pay-or-pre-order rate set beside the panel's buy rate. Friends are listed but not counted. |
+| `/founder-compliance` | Compliance Checklist | Licences, tax, invoicing, premises, employment and advertising rules to confirm for your country and business, each with the official page to check, who confirms it and the lead time before launch. It refuses to state a rule it cannot source. |
+| `/founder-sales` | Sales Lead | For businesses that sell to businesses: the ideal customer, outreach and follow-ups, a call script, and the funnel maths (conversations needed a week, CAC, LTV to CAC, payback). |
+| `/founder-metrics` | Performance Analyst | After launch: real sales and costs against the plan, month by month. On track, change something or stop and rethink, with the failing number named, and year 1 redrawn from the real months. |
+| `/founder-pitch` | Pitch Writer | Only if you are raising money or asking a lender: a 10-slide outline and the 15 hardest questions, built from the plan's own numbers. Never invents traction. |
+| `/founder-run` | Chief of Staff | Sets the market once, sees what is already in `founder/`, and runs the next skill in order. |
 
 ## How to use it
 
@@ -72,7 +85,8 @@ Run them in this order. Each one reads what the others wrote, in a `founder/`
 folder in your project.
 
 ```
-board -> competitors -> consumer -> pricing -> offer -> cfo -> marketing -> brand -> ops -> launch -> plan
+board -> competitors -> consumer -> pricing -> offer -> cfo -> compliance -> marketing -> brand -> ops -> launch -> plan
+          (interview in parallel after consumer; sales for B2B; metrics after launch; pitch if raising)
 ```
 
 An example: a matcha café in Toronto, iced matcha lattes at $6.50 a cup. (Every
@@ -103,26 +117,36 @@ input is in the example files in this repo, so you can run the tools on it.)
    real buyers.
 8. **`/founder-plan`** compiles `founder/business-plan.md`. Its verdict is
    computed, not written: Profitable only if every unit earns money, year 1 makes
-   a profit, break-even fits capacity and enough of the panel buys.
+   a profit, break-even fits capacity, enough of the panel buys and, once five or
+   more real people have been interviewed, enough of them paid or pre-ordered.
+   `compile.py --html` gives a page you can print to PDF; `compile.py --vault
+   <folder>` writes the plan into an Obsidian vault (or a Notion markdown import).
+9. **`/founder-metrics`**, once you are open: put the real sales and costs in
+   `founder/actuals.csv` each week and it tells you if you are on plan.
 
 You can also run any one on its own. `/founder-consumer --quick` on an idea you
 are only thinking about is a good way to find out if you should.
 
 ## The tools
 
-Four of them, all standard-library Python. None touch the network.
+Eight of them, all standard-library Python. None touch the network.
 
 ```bash
 python3 skills/founder-cfo/unit_economics.py founder/numbers.json --out founder/cfo.md   # margins, break-even, year 1
 python3 skills/founder-consumer/panel.py init --customer founder/customer.json --pitch founder/pitch.md
 python3 skills/founder-pricing/van_westendorp.py founder/panel/answers --price 6.50       # the acceptable price range
+python3 skills/founder-interview/interview.py tally                                        # real people against the panel
+python3 skills/founder-sales/funnel.py founder/funnel.json                                 # conversations needed, CAC, payback
+python3 skills/founder-metrics/metrics.py founder/numbers.json founder/actuals.csv         # plan against reality
 python3 skills/founder-plan/compile.py --dir founder                                     # the plan and its verdict
+python3 skills/founder-run/status.py                                                      # where you are and what is next
 ```
 
 **`unit_economics.py`** reads one JSON (example: `skills/founder-cfo/example.json`)
 and reports contribution, break-even, the margin at plan, year 1 by month, cash
-needed, payback and three what-ifs. Every number traces to an input; a missing
-field is an error, never a guess.
+needed, payback, the lowest price that still breaks even, and what-ifs including a
+price against volume grid. Money shows in the file's `currency` (USD, VND...). Every
+number traces to an input; a missing field is an error, never a guess.
 
 **`panel.py`** deals persona cards from your target customer (same seed, same
 cards), writes one brief per buyer, checks the answers and tallies them. It never
@@ -132,7 +156,19 @@ answers for a buyer.
 CSV from a real survey) and finds the points of marginal cheapness and
 expensiveness, the optimal and the indifference price.
 
+**`interview.py`** files one record per real conversation and tallies them. People
+who are friends are listed but not counted, because they say yes to be kind.
+
+**`funnel.py`** works a sales target backwards through your stages to the number of
+first conversations you need, and the CAC and payback if you give it a spend.
+
+**`metrics.py`** compares `numbers.json` with `actuals.csv` and gives a call, a
+table of plan against real, and a reforecast of year 1.
+
 **`compile.py`** assembles the plan and computes the verdict.
+
+**`status.py`** reads `founder/` and names the next skill; it can also write
+`founder/market.json`.
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -149,8 +185,9 @@ they endorse anything. This project is not affiliated with any of them.
 **The consumer panel is simulated buyers, not customers.** It is a fast, cheap way
 to find objections, segments and wording before you spend. It is not a forecast:
 language models lean agreeable, so read the buy rate as an upper bound, and
-confirm the big calls with real people. `/founder-launch` starts with exactly that
-test. Panel answers are research; never use them as testimonials.
+confirm the big calls with real people: `/founder-interview` is built for that,
+and `/founder-launch` starts with a real test too. Panel answers are research;
+never use them as testimonials.
 
 **The numbers are only as good as the inputs.** The CFO marks every estimate as an
 estimate and asks for real quotes. Check costs with suppliers and the structure,
@@ -166,17 +203,23 @@ confirms it.
 ## Files
 
 ```
-skills/founder-board/        SKILL.md, lenses.md
-skills/founder-competitors/  SKILL.md
-skills/founder-consumer/     SKILL.md, panel.py, customer.example.json, pitch.example.md
-skills/founder-pricing/      SKILL.md, van_westendorp.py
-skills/founder-offer/        SKILL.md
-skills/founder-cfo/          SKILL.md, unit_economics.py, example.json
-skills/founder-marketing/    SKILL.md
-skills/founder-brand/        SKILL.md
-skills/founder-ops/          SKILL.md
-skills/founder-launch/       SKILL.md
+skills/founder-board/        SKILL.md, lenses.md, locale-vn.md
+skills/founder-competitors/  SKILL.md, locale-vn.md
+skills/founder-consumer/     SKILL.md, panel.py, customer.example.json, pitch.example.md, *.vn.* examples, locale-vn.md
+skills/founder-interview/    SKILL.md, interview.py, interview.example/
+skills/founder-pricing/      SKILL.md, van_westendorp.py, locale-vn.md
+skills/founder-offer/        SKILL.md, locale-vn.md
+skills/founder-cfo/          SKILL.md, unit_economics.py, example.json, example.vn.json, locale-vn.md
+skills/founder-compliance/   SKILL.md, locale-vn.md
+skills/founder-marketing/    SKILL.md, locale-vn.md
+skills/founder-sales/        SKILL.md, funnel.py, funnel.example.json
+skills/founder-brand/        SKILL.md, locale-vn.md
+skills/founder-ops/          SKILL.md, locale-vn.md
+skills/founder-launch/       SKILL.md, locale-vn.md
+skills/founder-metrics/      SKILL.md, metrics.py, actuals.example.csv
 skills/founder-plan/         SKILL.md, compile.py
+skills/founder-pitch/        SKILL.md
+skills/founder-run/          SKILL.md, status.py
 tests/                       the tests for every tool
 ```
 

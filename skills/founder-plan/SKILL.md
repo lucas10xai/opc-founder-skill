@@ -36,6 +36,10 @@ prints the verdict and each check. The checks, all computed:
 3. The break-even fits inside capacity, if a capacity was given.
 4. Enough simulated buyers buy (`founder/panel/results.json`; default bar 25%,
    change it with `--min-buy-rate` and say why).
+5. Once five or more real people have been interviewed
+   (`founder/interviews/results.json`), enough of them paid or pre-ordered (bar
+   `--min-real-rate`, default 10%). With fewer than five the plan shows the count
+   and does not judge it.
 
 If there are no numbers, the verdict is Incomplete: offer to run `/founder-cfo`.
 List the other missing sections with the skill that fills each. Do not fill a
@@ -80,7 +84,16 @@ the plan, word for word.
 - Say once, clearly: the panel is simulated buyers and the numbers are projections;
   real customers and real quotes confirm them. Not financial, legal or tax advice.
 - If the user wants a PDF or a deck, offer to export the plan, but keep the
-  markdown as the source of truth.
+  markdown as the source of truth. `compile.py --html` writes a printable page
+  (open it in a browser and print to PDF), and `compile.py --vault <folder>` writes
+  the plan and the one-pager with frontmatter into an Obsidian vault, ready for a
+  Notion markdown import too.
+
+## Market and language
+
+If `founder/market.json` exists, write `founder/summary.md` and
+`founder/one-pager.md` in its language and show money in its currency. The numbers
+come from the compiler, so they are already in the currency of `numbers.json`.
 
 ## Output
 

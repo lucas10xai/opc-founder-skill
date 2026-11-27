@@ -59,7 +59,15 @@ The weekly numbers to track (from the CFO: units a day against break-even; from
 marketing: the channel numbers), the level that triggers a change, and a review on
 days 7, 14 and 30 with the questions to answer.
 
+## Market and language
+
+If `founder/market.json` exists and says country `VN`, or the user is clearly in Vietnam or writes
+Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`. Write every file in the user's language
+(Vietnamese when they write Vietnamese) and use the currency from `founder/market.json`
+(VND is shown like `45,000₫`). Treat the Vietnam notes as prompts to check, not as sourced rules.
+
 ## Output
 
 `founder/launch.md` with the test, the countdown, the run sheet and the 30-day
 review. Next: `/founder-plan` compiles everything into the business plan.
+After launch, run `/founder-metrics` weekly to track the real numbers.
