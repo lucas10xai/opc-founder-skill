@@ -40,6 +40,7 @@ STEPS = [
     ("founder-plan", "business-plan.md", "core", "everything in one plan, with a computed verdict"),
     ("founder-metrics", "metrics.md", "optional", "after launch: plan against reality"),
     ("founder-pitch", "pitch-deck.md", "optional", "only if raising money or asking a lender"),
+    ("founder-playbook", "playbook.md", "optional", "any time: what top founders have published, applied to your numbers"),
 ]
 MARKETS = {"VN": ("VND", "Vietnamese")}
 

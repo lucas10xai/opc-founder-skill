@@ -143,6 +143,17 @@ The panel is the first look, not the last. After the tally, offer
 `founder/interviews/results.json` exists, set the real commitment rate beside the
 panel's buy rate and say which one the founder should trust (the real one).
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `jobs-to-be-done`: Jobs to Be Done
+- `customer-development`: Customer Development
+- `mom-test`: The Mom Test
+
 ## Output
 
 `founder/customer.json`, `founder/pitch.md`, `founder/panel/` (cards, briefs,

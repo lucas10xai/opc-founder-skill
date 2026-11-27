@@ -15,7 +15,7 @@ argument-hint: "[the idea in one or two sentences]"
 
 # founder-run
 
-The pack has seventeen skills and an order. This one keeps track of both, so the
+The pack has eighteen skills and an order. This one keeps track of both, so the
 founder does not have to remember which skill comes next.
 
 Tool in this folder:
@@ -91,6 +91,10 @@ Things that change the order:
   marketing a business that loses money on every sale.
 - **Raising money.** Only if the user says so, `/founder-pitch` after the plan.
 - **Already launched.** Go straight to `/founder-metrics` with real numbers.
+- **Stuck on a decision.** At any point, `/founder-playbook` picks the two or three
+  published frameworks that fit the stage and applies them to the files in
+  `founder/`. Use it when the user asks how to think about something, not to skip a
+  step.
 
 ## Step 5: the end
 

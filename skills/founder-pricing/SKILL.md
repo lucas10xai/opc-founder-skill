@@ -93,6 +93,17 @@ or writes Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`, write
   long the CFO says the business can afford it.
 - No fake anchors: no "was $X" price that was never charged.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `anchoring-loss-aversion`: Anchoring and Loss Aversion
+- `porter-strategy-tradeoffs`: Strategy as Trade-offs
+- `first-principles`: First Principles Reasoning
+
 ## Output
 
 `founder/pricing-curve.md`, `founder/pricing.md`. If the price changed, update

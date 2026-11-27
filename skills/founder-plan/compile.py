@@ -52,6 +52,7 @@ SECTIONS = [  # (file in founder/, heading, which skill writes it, optional)
     ("ops.md", "Operations", "founder-ops", False),
     ("launch.md", "Launch plan", "founder-launch", False),
     ("metrics.md", "How it is going", "founder-metrics", True),
+    ("playbook.md", "What the frameworks say", "founder-playbook", True),
 ]
 _UE = None
 

@@ -125,6 +125,20 @@ Vietnamese, write `founder/metrics.md` in their language and show money in their
 currency (VND like `45,000₫`). Platform commissions and payment fees belong in
 `variable_cost`; ask for them if the revenue figure is before the platform's cut.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `lean-startup`: Lean Startup
+- `product-market-fit`: Product/Market Fit and the Sean Ellis Test
+- `graham-default-alive`: Default Alive or Default Dead, and Ramen Profitable
+- `profit-first`: Profit First
+- `high-output-okrs`: High Output Management and OKRs
+- `dalio-principles`: Dalio's Five-Step Process and Decision Rules
+
 ## Output
 
 `founder/actuals.csv` and `founder/metrics.md`. Next: run the skill the table points

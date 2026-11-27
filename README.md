@@ -4,14 +4,14 @@
 
 **Đừng đợi đến khi ký hợp đồng thuê mặt bằng mới biết ý tưởng có sống được không.**
 
-17 skill cho Claude giúp bạn kiểm tra một ý tưởng kinh doanh trước khi tiêu tiền, rồi theo dõi nó sau khi mở bán. Miễn phí, giấy phép MIT, không cần đăng ký, không cần API key, không phải kết nối gì.
+18 skill cho Claude giúp bạn kiểm tra một ý tưởng kinh doanh trước khi tiêu tiền, rồi theo dõi nó sau khi mở bán, kèm thư viện 29 khung tư duy kinh doanh từ các nhà sáng lập, nhà đầu tư và nhà tư tưởng quản trị hàng đầu. Miễn phí, giấy phép MIT, không cần đăng ký, không cần API key, không phải kết nối gì.
 
 `skills/founder-board` `skills/founder-marketing` `skills/founder-cfo`
 `skills/founder-consumer` `skills/founder-launch` `skills/founder-pricing`
 `skills/founder-offer` `skills/founder-competitors` `skills/founder-brand`
 `skills/founder-ops` `skills/founder-plan` `skills/founder-interview`
 `skills/founder-compliance` `skills/founder-sales` `skills/founder-metrics`
-`skills/founder-pitch` `skills/founder-run`
+`skills/founder-pitch` `skills/founder-run` `skills/founder-playbook`
 
 ## Mục lục
 
@@ -19,11 +19,12 @@
 - [Bắt đầu nhanh](#bắt-đầu-nhanh)
 - [Cài đặt](#cài-đặt)
 - [Bạn nhận được gì](#bạn-nhận-được-gì)
-- [17 skill, chia theo giai đoạn](#17-skill-chia-theo-giai-đoạn)
+- [18 skill, chia theo giai đoạn](#18-skill-chia-theo-giai-đoạn)
 - [Một ví dụ chạy từ đầu đến cuối](#một-ví-dụ-chạy-từ-đầu-đến-cuối)
 - [Sau khi mở bán](#sau-khi-mở-bán)
 - [Dành cho thị trường Việt Nam](#dành-cho-thị-trường-việt-nam)
 - [Bán cho doanh nghiệp (B2B)](#bán-cho-doanh-nghiệp-b2b)
+- [Thư viện khung tư duy từ các doanh nhân hàng đầu](#thư-viện-khung-tư-duy-từ-các-doanh-nhân-hàng-đầu)
 - [Các công cụ Python](#các-công-cụ-python)
 - [Câu hỏi thường gặp](#câu-hỏi-thường-gặp)
 - [Những điều bộ skill này không làm được](#những-điều-bộ-skill-này-không-làm-được)
@@ -35,12 +36,12 @@ Phần lớn người mới kinh doanh học bài học đắt nhất theo thứ
 
 Bộ skill này đảo thứ tự đó. Trước khi chi một đồng, bạn cho ý tưởng đi qua:
 
-- **Hội đồng quản trị.** Ba thành viên, mỗi người đọc ý tưởng qua một khung tư duy đã công bố (Alex Hormozi, Peter Thiel, Steve Jobs), chấm điểm, nêu điều có thể giết dự án và bỏ phiếu.
+- **Hội đồng quản trị.** Từ ba đến năm thành viên, mỗi người đọc ý tưởng qua một khung tư duy đã công bố (ba ghế cố định theo Alex Hormozi, Peter Thiel, Steve Jobs; hai ghế khách theo loại hình kinh doanh, rút từ thư viện khung tư duy), chấm điểm, nêu điều có thể giết dự án và bỏ phiếu.
 - **Giám đốc marketing.** Định vị, kênh khách thật sự dùng, chiến dịch 30 ngày có lịch cụ thể.
 - **CFO.** Biên lợi nhuận thật, điểm hòa vốn mỗi ngày, năm 1 theo từng tháng, số tiền mặt bạn cần có trước khi dự án tự nuôi được mình.
 - **Hội đồng người tiêu dùng.** 100 khách hàng giả lập dựng theo đúng tệp khách mục tiêu của bạn, mỗi người một mức thu nhập, thói quen và nỗi băn khoăn, cùng xem một lời chào hàng và trả lời có mua hay không, vì sao.
 
-Và vì mô phỏng thì chưa phải thật, bộ skill còn có phần kiểm chứng với người thật (`/founder-interview`) và phần theo dõi sau khi mở bán (`/founder-metrics`).
+Và vì mô phỏng thì chưa phải thật, bộ skill còn có phần kiểm chứng với người thật (`/founder-interview`) và phần theo dõi sau khi mở bán (`/founder-metrics`). Khi bạn cần suy nghĩ về một quyết định khó, `/founder-playbook` chọn hai hoặc ba khung tư duy đã công bố phù hợp với giai đoạn của bạn rồi áp vào chính số liệu trong `founder/`.
 
 Ba nguyên tắc xuyên suốt:
 
@@ -132,7 +133,7 @@ founder/
   metrics.md             kế hoạch so với thực tế
 ```
 
-## 17 skill, chia theo giai đoạn
+## 18 skill, chia theo giai đoạn
 
 Thứ tự chạy:
 
@@ -147,7 +148,7 @@ Bạn không bắt buộc đi hết chuỗi. Mỗi skill chạy riêng được,
 
 | lệnh | vai trò | làm gì | ghi ra |
 | --- | --- | --- | --- |
-| `/founder-board` | Hội đồng quản trị | Ba thành viên, mỗi người là một sub-agent áp dụng một khung đã công bố (Offers từ *$100M Offers*; Monopoly từ *Zero to One*; Product từ tiểu sử *Steve Jobs* của Isaacson). Mỗi người chấm điểm, nêu điều có thể giết ý tưởng và bỏ phiếu: đầu tư, đầu tư nếu có điều kiện, hoặc bỏ qua. | `idea.md`, `board.md` |
+| `/founder-board` | Hội đồng quản trị | Từ ba đến năm thành viên, mỗi người là một sub-agent áp dụng một khung đã công bố. Ba ghế cố định: Offers (từ *$100M Offers*), Monopoly (từ *Zero to One*), Product (từ tiểu sử *Steve Jobs* của Isaacson). Hai ghế khách do chủ tọa chọn theo loại hình kinh doanh: Lean, Moat, Customer, Operator, Calm (xem phần thư viện). Mỗi người chấm điểm, nêu điều có thể giết ý tưởng và bỏ phiếu: đầu tư, đầu tư nếu có điều kiện, hoặc bỏ qua. | `idea.md`, `board.md` |
 | `/founder-competitors` | Trinh sát đối thủ | Lập bản đồ đối thủ trực tiếp, gián tiếp và hàng thay thế từ nguồn công khai: giá, định vị, khách của họ phàn nàn gì. Mỗi dữ kiện có link. | `competitors.md`, `competitors.csv` |
 | `/founder-consumer` | Hội đồng người tiêu dùng | Dựng bầy khách giả lập (mặc định 100, `--quick` là 20) từ tệp khách mục tiêu, mỗi khách một sub-agent. Tổng hợp tỷ lệ mua theo phân khúc, lý do không mua bằng lời của họ, điều gì có thể đổi câu trả lời "không", và bốn câu trả lời về giá cho `/founder-pricing`. | `customer.json`, `pitch.md`, `panel/` |
 | `/founder-interview` | Huấn luyện khám phá khách hàng | Hội đồng chỉ là giả lập; skill này kiểm tra nó với 5 đến 10 người thật. Soạn bản sàng lọc và kịch bản phỏng vấn theo kiểu hỏi về hành vi thật, lưu hồ sơ từng cuộc, rồi đặt tỷ lệ người thật trả tiền hoặc đặt cọc cạnh tỷ lệ mua của hội đồng. | `interviews/` |
@@ -179,6 +180,12 @@ Bạn không bắt buộc đi hết chuỗi. Mỗi skill chạy riêng được,
 | `/founder-metrics` | Phân tích hiệu quả | Sau khi mở bán: so doanh số và chi phí thật với kế hoạch từng tháng, kết luận và vẽ lại năm 1 từ các tháng thực tế. | `actuals.csv`, `metrics.md` |
 | `/founder-pitch` | Soạn bài gọi vốn | Chỉ dùng khi bạn gọi vốn hoặc vay. Dàn ý 10 slide và 15 câu hỏi khó nhất, dựng từ chính số liệu của kế hoạch. Từ chối chạy nếu kết luận là Incomplete, và không bao giờ bịa số liệu tăng trưởng hay quy mô thị trường. | `pitch-deck.md`, `pitch-qa.md` |
 | `/founder-run` | Chánh văn phòng | Đặt thị trường một lần, xem trong `founder/` đã có gì, chạy skill kế tiếp đúng thứ tự, và dừng lại nếu một bước tự kiểm tra thất bại (ví dụ mỗi đơn vị bán đang lỗ). | `market.json` |
+
+### Ở mọi giai đoạn: cố vấn
+
+| lệnh | vai trò | làm gì | ghi ra |
+| --- | --- | --- | --- |
+| `/founder-playbook` | Cố vấn | Thư viện 29 khung tư duy đã công bố, mỗi khung viết bằng lời của chúng tôi. Chọn hai hoặc ba khung hợp với giai đoạn và loại hình kinh doanh của bạn, trả lời bộ câu hỏi của khung đó bằng chính các file trong `founder/`, chỉ ra dấu hiệu cảnh báo đang có và điểm khung đó có thể dẫn bạn đi sai. Khi các khung mâu thuẫn nhau (tăng nhanh hay có lãi sớm, thử trước hay lập kế hoạch trước) nó nêu cả hai phía và chọn một cái cho hoàn cảnh của bạn, kèm lý do. | `playbook.md` |
 
 ### Kết luận của kế hoạch được tính như thế nào
 
@@ -291,6 +298,77 @@ Hai điều cần biết:
 - Bảng số liệu do công cụ Python sinh ra (báo cáo CFO, kết quả hội đồng, báo cáo metrics) vẫn dùng tiêu đề tiếng Anh. Phần giải thích do skill viết thì theo tiếng Việt.
 - Quy định thuế, hóa đơn, giấy phép của Việt Nam thay đổi thường xuyên (cách tính thuế hộ kinh doanh đã đổi từ 2026). Vì vậy các file `locale-vn.md` chỉ trỏ tới trang chính thức (cổng đăng ký kinh doanh, cổng thuế, cổng hóa đơn điện tử, cổng dịch vụ công, cơ sở dữ liệu văn bản pháp luật, cục sở hữu trí tuệ, cục an toàn thực phẩm, bảo hiểm xã hội) để bạn kiểm tra, không nêu mức thuế hay ngưỡng từ trí nhớ. Hãy xác nhận từng mục với cơ quan có thẩm quyền hoặc kế toán của bạn.
 
+
+## Thư viện khung tư duy từ các doanh nhân hàng đầu
+
+Bộ skill không chỉ dựa vào ba cái tên. Thư mục `skills/founder-playbook/frameworks/` có **29 khung tư duy kinh doanh đã công bố** của các nhà sáng lập, nhà đầu tư và nhà tư tưởng quản trị nổi tiếng, mỗi khung là một file với cùng một cấu trúc: ý tưởng chính, khi nào nên dùng, các câu hỏi để hỏi người sáng lập, dấu hiệu cảnh báo, cách bộ skill áp dụng, giới hạn, và nguồn.
+
+Nguyên tắc của thư viện:
+
+- **Viết bằng lời của chúng tôi, không trích nguyên văn.** Mỗi file được đối chiếu với nguồn gốc (sách, bài luận, thư cổ đông, bài trên Harvard Business Review). Điều gì không xác nhận được thì bị bỏ ra, không đoán. Phần "Sources" chỉ có link đã mở được.
+- **Khung tư duy là thấu kính, không phải luật.** Phần lớn được rút ra từ một vài trường hợp nổi tiếng, nên mỗi file có mục "Limits" nói rõ khung đó viết cho ai, bị phê bình thế nào và khi nào không nên dùng. Ví dụ Blitzscaling nằm trong thư viện chủ yếu để bạn biết khi nào KHÔNG nên dùng nó.
+- **Không ai bị đóng vai.** Các skill nói "khung Lean Startup hỏi...", không bao giờ "Eric Ries sẽ nói...". Dự án này không liên kết với, và không được ai trong số họ chấp thuận.
+- **Không khung nào thắng được con số.** Nếu CFO cho thấy mỗi đơn vị bán đang lỗ thì không khung tư duy nào làm điều đó chấp nhận được.
+
+### Cách thư viện được dùng
+
+1. **`/founder-playbook`** hỏi hoặc đọc `founder/` để xác định giai đoạn (`idea`, `validate`, `price`, `launch`, `operate`, `grow`) và loại hình (`consumer`, `business`, `online`, `service`, `physical`), rồi chọn tối đa ba khung. Công cụ `playbook.py suggest` xếp hạng các khung theo giai đoạn, loại hình và skill liên quan.
+2. **Hội đồng quản trị** có thêm năm ghế khách: **Lean** (Ries, Blank, Graham), **Moat** (Buffett, Munger, Porter), **Customer** (Bezos, Christensen), **Operator** (Gerber, Grove, Walton) và **Calm** (Graham, Fried và Hansson, Michalowicz). Chủ tọa chọn hai ghế hợp với doanh nghiệp: ví dụ quán hoặc cửa hàng có hợp đồng thuê và nhân viên thì Operator và Moat; sản phẩm online hoặc dịch vụ một người thì Calm và Lean; bán cho doanh nghiệp thì Customer và Lean. Dùng `--core` nếu chỉ muốn ba ghế cố định.
+3. **Mỗi skill khác** có mục "Frameworks that apply" liệt kê các khung liên quan tới bước đó (ví dụ `/founder-cfo` trỏ tới Default Alive, Profit First, Margin of Safety). Một bài test đảm bảo danh sách đó luôn khớp với thư viện.
+
+### 29 khung
+
+**Kiểm chứng ý tưởng và khách hàng**
+
+| khung | nguồn | dùng khi |
+| --- | --- | --- |
+| Lean Startup | Eric Ries, *The Lean Startup* (2011) | Cần phép thử rẻ nhất trước khi xây; phân biệt số liệu cho thấy tiến bộ thật với số liệu chỉ đẹp mắt |
+| Customer Development | Steve Blank, *The Four Steps to the Epiphany* (2005) | Biến mô hình kinh doanh thành các giả thuyết rồi đi hỏi khách để kiểm chứng |
+| The Mom Test | Rob Fitzpatrick (2013) | Hỏi khách sao cho không nhận về những lời khen cho vui lòng |
+| Jobs to Be Done | Clayton Christensen và cộng sự, Harvard Business Review (2016) | Hiểu khách "thuê" sản phẩm để làm việc gì, trong hoàn cảnh nào |
+| Product/Market Fit | Marc Andreessen (2007); khảo sát Sean Ellis | Biết đã có đủ người thật sự cần sản phẩm chưa. Ngưỡng 40% của Ellis là mức tham khảo của chính ông, chưa có kiểm chứng độc lập |
+| Do Things that Don't Scale | Paul Graham (2013) | Giành những khách đầu tiên bằng tay, chăm sóc kiểu không thể nhân rộng |
+
+**Thị trường và chiến lược**
+
+| khung | nguồn | dùng khi |
+| --- | --- | --- |
+| Five Forces | Michael Porter, Harvard Business Review (2008) | Xem ai giữ phần lợi nhuận trong thị trường này: nhà cung cấp, người mua, đối thủ mới, hàng thay thế hay đối thủ hiện có |
+| Strategy as Trade-offs | Michael Porter, "What Is Strategy?" (1996) | Chọn điều sẽ KHÔNG làm; phân biệt hiệu quả vận hành với chiến lược |
+| Blue Ocean Strategy | W. Chan Kim và Renée Mauborgne (2005) | Tìm khoảng trống: bỏ, giảm, tăng, tạo so với các đối thủ đã tìm được |
+| Business Model Canvas | Alexander Osterwalder và Yves Pigneur (2010) | Nhìn cả mô hình kinh doanh trên một trang với chín khối |
+| Positioning | Al Ries và Jack Trout (1981) | Chiếm một vị trí rõ ràng trong đầu khách, đối chiếu với người dẫn đầu |
+| Hedgehog Concept and Flywheel | Jim Collins, *Good to Great* (2001) | Tìm điểm giao của đam mê, lợi thế thật và động cơ kinh tế. Có các phê bình về phương pháp nghiên cứu của sách |
+| Disruption Theory | Clayton Christensen, *The Innovator's Dilemma* (1997) | Đánh giá mối đe dọa từ đối thủ nhỏ hơn, rẻ hơn, hoặc dùng làm chiến lược gia nhập |
+
+**Quyết định, tiền và tâm lý khách hàng**
+
+| khung | nguồn | dùng khi |
+| --- | --- | --- |
+| Working Backwards | Colin Bryar và Bill Carr, *Working Backwards* (2021) | Viết trước thông cáo báo chí và bộ câu hỏi thường gặp của sản phẩm để thử xem ý tưởng đã rõ chưa |
+| Two-Way Doors | Jeff Bezos, thư gửi cổ đông (2015, 2016) | Phân biệt quyết định đảo ngược được với không đảo ngược được, để chọn quyết định nào cần cân nhắc kỹ |
+| Circle of Competence, Moat, Margin of Safety | Warren Buffett, thư gửi cổ đông (1995 đến 1997); Charlie Munger | Hỏi lợi thế có bền không, bạn có hiểu ngành này không, và dự án có sống nếu sai một phần ba không |
+| Inversion and the Pre-Mortem | Charlie Munger; Gary Klein, Harvard Business Review (2007) | Hình dung dự án đã thất bại rồi tìm nguyên nhân, trước khi bỏ tiền |
+| Default Alive, Ramen Profitable | Paul Graham (2015, 2009) | Xem với đà doanh thu và chi phí hiện tại, tiền có hết trước khi hòa vốn không |
+| Profit First | Mike Michalowicz (2014) | Trích lợi nhuận ngay khi tiền vào thay vì hy vọng cuối kỳ còn dư |
+| Anchoring and Loss Aversion | Daniel Kahneman, *Thinking, Fast and Slow* (2011) | Hiểu vì sao giá đầu tiên khách thấy ảnh hưởng đến phán đoán, và dùng trung thực trong định giá |
+| Seven Principles of Influence | Robert Cialdini, *Influence* (1984; bản mở rộng 2021) | Xây ưu đãi có bằng chứng thật, và biết lúc nào thì thành thao túng |
+
+**Vận hành, tăng trưởng và tư duy chủ doanh nghiệp**
+
+| khung | nguồn | dùng khi |
+| --- | --- | --- |
+| The E-Myth | Michael Gerber, *The E-Myth Revisited* (1995) | Làm việc TRÊN doanh nghiệp thay vì chỉ làm TRONG nó; biến công việc thành quy trình viết ra được |
+| High Output Management and OKRs | Andy Grove (1983); John Doerr | Chọn một mục tiêu và vài kết quả đo được, theo dõi chỉ báo sớm |
+| Walton's Ten Rules | Sam Walton, *Made in America* (1992) | Cửa hàng hoặc bất kỳ doanh nghiệp tiếp xúc khách: lắng nghe nhân viên và khách, kiểm soát chi phí |
+| The Calm Company | Jason Fried và David Heinemeier Hansson, *Rework* (2010) | Giữ nhỏ, có lãi sớm, giảm chi phí cố định |
+| Dalio's Five-Step Process | Ray Dalio, *Principles* (2017) | Ghi quy tắc ra quyết định và nhật ký quyết định |
+| Blitzscaling | Reid Hoffman và Chris Yeh (2018) | Chủ yếu để biết khi nào KHÔNG dùng: chỉ hợp với thị trường thắng chiếm hết và có vốn ngoài |
+| Specific Knowledge, Leverage, Equity | *The Almanack of Naval Ravikant* (2020), do Eric Jorgenson biên soạn từ các phát biểu công khai | Nghĩ về kiến thức đặc thù, đòn bẩy và sở hữu thay vì bán thời gian |
+| First Principles | Aristotle; Elon Musk, phỏng vấn Wired (2012) | Phân rã chi phí về những sự thật cơ bản rồi dựng lại |
+
+Thêm một khung mới là thêm một file vào `frameworks/` theo đúng mẫu rồi chạy `python3 skills/founder-playbook/playbook.py check`: công cụ báo mọi file sai định dạng.
+
 ## Bán cho doanh nghiệp (B2B)
 
 Hội đồng người tiêu dùng mặc định là khách cá nhân. Nếu khách của bạn là doanh nghiệp (agency, phần mềm, dịch vụ, bán sỉ):
@@ -301,7 +379,7 @@ Hội đồng người tiêu dùng mặc định là khách cá nhân. Nếu kh�
 
 ## Các công cụ Python
 
-Tám công cụ, đều là Python chuẩn, không kết nối mạng, không gọi lệnh hệ thống.
+Chín công cụ, đều là Python chuẩn, không kết nối mạng, không gọi lệnh hệ thống.
 
 ```bash
 python3 skills/founder-cfo/unit_economics.py founder/numbers.json --out founder/cfo.md   # biên lợi nhuận, hòa vốn, năm 1
@@ -312,6 +390,7 @@ python3 skills/founder-sales/funnel.py founder/funnel.json                      
 python3 skills/founder-metrics/metrics.py founder/numbers.json founder/actuals.csv         # kế hoạch so với thực tế
 python3 skills/founder-plan/compile.py --dir founder                                     # kế hoạch và kết luận
 python3 skills/founder-run/status.py                                                      # đang ở đâu, bước tiếp theo là gì
+python3 skills/founder-playbook/playbook.py suggest --stage validate --fits consumer       # khung tư duy phù hợp với giai đoạn của bạn
 ```
 
 - **`unit_economics.py`** đọc một file JSON (ví dụ `example.json` bằng USD hoặc `example.vn.json` bằng VND) và tính lãi trên mỗi đơn vị, hòa vốn, biên lợi nhuận ở mức dự kiến, năm 1 theo tháng, tiền mặt cần có, tháng hoàn vốn, mức giá thấp nhất vẫn hòa vốn, các kịch bản "nếu" (giá giảm 10%, sản lượng giảm 20%, chi phí đơn vị tăng 15%) và bảng lợi nhuận theo giá nhân sản lượng. Thiếu trường là báo lỗi, không đoán. `--price` và `--volume` cho chạy thử một kịch bản mà không phải sửa file.
@@ -322,8 +401,9 @@ python3 skills/founder-run/status.py                                            
 - **`metrics.py`** so `numbers.json` với `actuals.csv`, đưa ra kết luận, bảng kế hoạch so với thực tế và dự báo lại năm 1.
 - **`compile.py`** gộp kế hoạch, tính kết luận và xuất HTML hoặc ghi vào kho Obsidian.
 - **`status.py`** đọc `founder/` và cho biết skill kế tiếp; nó cũng ghi được `founder/market.json`.
+- **`playbook.py`** tìm khung tư duy trong thư viện theo giai đoạn, loại hình kinh doanh và skill (`list`, `suggest`, `show`), và kiểm tra mọi file có đúng định dạng không (`check`).
 
-Chạy kiểm thử (95 bài, chưa đến một giây):
+Chạy kiểm thử (106 bài, chưa đến một giây):
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -345,6 +425,9 @@ Vì một trong năm kiểm tra không đạt, và kế hoạch ghi rõ kiểm t
 
 **Tôi đổi giá giữa chừng thì sao?**
 Cập nhật `founder/numbers.json` (hoặc để `/founder-pricing` làm), chạy lại `/founder-cfo`, rồi `/founder-plan`. `/founder-run` nhắc việc này.
+
+**Những khung tư duy đó có phải là lời của các doanh nhân ấy không?**
+Không. Mỗi file tóm tắt một ý tưởng đã công bố bằng lời của chúng tôi và ghi rõ sách hoặc bài viết gốc. Hội đồng và cố vấn áp dụng khung đó, không đóng vai người đã viết ra nó, và không ai trong số họ liên quan tới dự án này. Một vài khung (như ngưỡng 40% của Sean Ellis) chỉ là kinh nghiệm cá nhân, file ghi rõ điều đó.
 
 **Dữ liệu của tôi đi đâu?**
 Các công cụ Python chạy trên máy bạn và không kết nối mạng. Nội dung bạn trao đổi với skill vẫn đi qua Claude như mọi cuộc trò chuyện khác, và các bước nghiên cứu (đối thủ, giấy phép) dùng tìm kiếm web công khai.
@@ -386,6 +469,7 @@ skills/founder-metrics/      SKILL.md, metrics.py, actuals.example.csv
 skills/founder-plan/         SKILL.md, compile.py
 skills/founder-pitch/        SKILL.md
 skills/founder-run/          SKILL.md, status.py
+skills/founder-playbook/     SKILL.md, playbook.py, frameworks/ (29 file)
 tests/                       kiểm thử cho mọi công cụ
 ```
 
@@ -401,7 +485,7 @@ MIT. Cứ lấy, sửa, rồi mang đi dùng.
 
 # The Founder skill
 
-Seventeen Claude skills that test a business before you launch it, and check it
+Eighteen Claude skills that test a business before you launch it, and check it
 once it is live. Free, MIT, no signup, no API key, nothing to connect.
 
 `skills/founder-board` `skills/founder-marketing` `skills/founder-cfo`
@@ -409,13 +493,19 @@ once it is live. Free, MIT, no signup, no API key, nothing to connect.
 `skills/founder-offer` `skills/founder-competitors` `skills/founder-brand`
 `skills/founder-ops` `skills/founder-plan` `skills/founder-interview`
 `skills/founder-compliance` `skills/founder-sales` `skills/founder-metrics`
-`skills/founder-pitch` `skills/founder-run`
+`skills/founder-pitch` `skills/founder-run` `skills/founder-playbook`
 
 One of them is your board of directors, trained on the frameworks of Alex
 Hormozi, Peter Thiel and Steve Jobs. One is your marketing director. One is your
 CFO and finds your real profit margins. And one is the consumer panel: it spins
 up 100 buyer agents trained on your target customer and runs your business
 through 100 buyer scenarios.
+
+It also carries a library of 29 published business frameworks from well-known
+founders, investors and management thinkers (Paul Graham, Eric Ries, Steve Blank,
+Clayton Christensen, Michael Porter, Jeff Bezos, Warren Buffett and Charlie Munger,
+Andy Grove and others), each summarised in our own words and applied to your own
+numbers. See [The framework library](#the-framework-library).
 
 So you know how to launch, how to market and how to actually make money, before
 you spend thousands of dollars finding out the hard way.
@@ -458,11 +548,11 @@ Working in Vietnam? Say so (or run `/founder-run`, which asks once and writes
 and writes in Vietnamese. Examples in VND: `skills/founder-cfo/example.vn.json` and
 `skills/founder-consumer/customer.example.vn.json`.
 
-## The seventeen
+## The eighteen
 
 | command | job | what it does |
 | --- | --- | --- |
-| `/founder-board` | Board of Directors | Three board members, each a sub-agent applying one published framework (Offers, from *$100M Offers*; Monopoly, from *Zero to One*; Product, from Isaacson's *Steve Jobs*), score the idea, name what would kill it and vote. |
+| `/founder-board` | Board of Directors | Three to five board members, each a sub-agent applying one published framework. Three seats are always filled: Offers (from *$100M Offers*), Monopoly (from *Zero to One*) and Product (from Isaacson's *Steve Jobs*). The chair adds two guest seats that fit the business (Lean, Moat, Customer, Operator, Calm). Each scores the idea, names what would kill it and votes. |
 | `/founder-competitors` | Competitor Scout | Maps direct competitors, indirect ones and substitutes from public sources, with prices, positioning and what their customers complain about, every fact linked. |
 | `/founder-consumer` | Consumer Panel | Spins up a swarm of buyer agents (100 by default) from your target customer, each with its own income, habits and objection, and tallies who buys, who doesn't and why. |
 | `/founder-pricing` | Pricing Strategist | Turns the panel's price answers into an acceptable price range, sets it against competitors and your margin, and picks what to test. |
@@ -479,6 +569,7 @@ and writes in Vietnamese. Examples in VND: `skills/founder-cfo/example.vn.json` 
 | `/founder-metrics` | Performance Analyst | After launch: real sales and costs against the plan, month by month. On track, change something or stop and rethink, with the failing number named, and year 1 redrawn from the real months. |
 | `/founder-pitch` | Pitch Writer | Only if you are raising money or asking a lender: a 10-slide outline and the 15 hardest questions, built from the plan's own numbers. Never invents traction. |
 | `/founder-run` | Chief of Staff | Sets the market once, sees what is already in `founder/`, and runs the next skill in order. |
+| `/founder-playbook` | Mentor | A library of 29 published frameworks, each in our own words. Picks the two or three that fit your stage and kind of business, answers each one's questions from your own `founder/` files, names the red flags present and where the framework could mislead you. When frameworks disagree (growth or profit, test or plan) it shows both and picks one for your situation, with the reason. |
 
 ## How to use it
 
@@ -528,9 +619,53 @@ input is in the example files in this repo, so you can run the tools on it.)
 You can also run any one on its own. `/founder-consumer --quick` on an idea you
 are only thinking about is a good way to find out if you should.
 
+## The framework library
+
+`skills/founder-playbook/frameworks/` holds 29 business frameworks, one file each,
+with the same sections: the idea, when to use it, questions to put to the founder,
+red flags, how the pack uses it, limits and sources.
+
+How the library works:
+
+- **Our own words, checked against the source.** Each file was verified against the
+  book, essay, shareholder letter or article it comes from. What could not be
+  confirmed was left out. No quotations. Sources list only links that load.
+- **Lenses, not laws.** Most frameworks come from a few famous cases. Each file has a
+  Limits section: who it was written for, known critiques, when not to use it.
+  Blitzscaling is in the library mainly so you know when NOT to use it.
+- **Nobody is impersonated.** The skills say "the Lean Startup framework asks", never
+  "Eric Ries would say". No one named here is affiliated with this project or
+  endorses it.
+- **A framework never beats the numbers.** If the CFO shows each unit losing money,
+  no framework makes that acceptable.
+
+How the pack uses it:
+
+1. `/founder-playbook` finds your stage (`idea`, `validate`, `price`, `launch`,
+   `operate`, `grow`) and kind of business (`consumer`, `business`, `online`,
+   `service`, `physical`), then applies at most three frameworks to the files in
+   `founder/`.
+2. The board has five guest seats on top of its three core ones: **Lean** (Ries,
+   Blank, Graham), **Moat** (Buffett, Munger, Porter), **Customer** (Bezos,
+   Christensen), **Operator** (Gerber, Grove, Walton) and **Calm** (Graham, Fried and
+   Hansson, Michalowicz). The chair seats the two that suit the business. `--core`
+   seats only the three core lenses.
+3. Fifteen other skills have a "Frameworks that apply" section naming the
+   frameworks for that step. A test keeps each list in step with the library.
+
+| group | frameworks |
+| --- | --- |
+| Validating the idea and the customer | Lean Startup (Ries), Customer Development (Blank), The Mom Test (Fitzpatrick), Jobs to Be Done (Christensen and colleagues), Product/Market Fit (Andreessen; the Sean Ellis survey), Do Things that Don't Scale (Graham) |
+| Market and strategy | Five Forces and Strategy as Trade-offs (Porter), Blue Ocean Strategy (Kim and Mauborgne), Business Model Canvas (Osterwalder and Pigneur), Positioning (Ries and Trout), Hedgehog Concept and Flywheel (Collins), Disruption Theory (Christensen) |
+| Decisions, money and buyer psychology | Working Backwards and Two-Way Doors (Bezos), Circle of Competence, Moat and Margin of Safety (Buffett, Munger), Inversion and the Pre-Mortem (Munger; Klein), Default Alive and Ramen Profitable (Graham), Profit First (Michalowicz), Anchoring and Loss Aversion (Kahneman), The Seven Principles of Influence (Cialdini) |
+| Operating, growing and the founder's mindset | The E-Myth (Gerber), High Output Management and OKRs (Grove; Doerr), Walton's Ten Rules (Walton), The Calm Company (Fried and Hansson), Dalio's Five-Step Process (Dalio), Blitzscaling (Hoffman and Yeh), Specific Knowledge, Leverage and Equity (Naval Ravikant, as compiled by Jorgenson), First Principles (Aristotle; Musk's public interviews) |
+
+To add one, write a file in `frameworks/` in the same format and run
+`python3 skills/founder-playbook/playbook.py check`; it names every malformed file.
+
 ## The tools
 
-Eight of them, all standard-library Python. None touch the network.
+Nine of them, all standard-library Python. None touch the network.
 
 ```bash
 python3 skills/founder-cfo/unit_economics.py founder/numbers.json --out founder/cfo.md   # margins, break-even, year 1
@@ -541,6 +676,7 @@ python3 skills/founder-sales/funnel.py founder/funnel.json                      
 python3 skills/founder-metrics/metrics.py founder/numbers.json founder/actuals.csv         # plan against reality
 python3 skills/founder-plan/compile.py --dir founder                                     # the plan and its verdict
 python3 skills/founder-run/status.py                                                      # where you are and what is next
+python3 skills/founder-playbook/playbook.py suggest --stage validate --fits consumer       # frameworks that fit your stage
 ```
 
 **`unit_economics.py`** reads one JSON (example: `skills/founder-cfo/example.json`)
@@ -571,17 +707,23 @@ table of plan against real, and a reforecast of year 1.
 **`status.py`** reads `founder/` and names the next skill; it can also write
 `founder/market.json`.
 
+**`playbook.py`** finds frameworks by stage, kind of business and pack skill
+(`list`, `suggest`, `show`) and checks that every file in the library is well formed
+(`check`).
+
 ```bash
 python3 -m unittest discover -s tests -v
 ```
 
 ## Fine print
 
-**The board applies published frameworks. It is not those people.** The three
-lenses are short summaries, in our words, of ideas from *$100M Offers* by Alex
-Hormozi, *Zero to One* by Peter Thiel with Blake Masters, and Walter Isaacson's
-biography of Steve Jobs. The board never speaks as them, quotes them or claims
-they endorse anything. This project is not affiliated with any of them.
+**The board and the library apply published frameworks. They are not those
+people.** The core lenses are short summaries, in our words, of ideas from *$100M
+Offers* by Alex Hormozi, *Zero to One* by Peter Thiel with Blake Masters, and
+Walter Isaacson's biography of Steve Jobs; the guest lenses and the library do the
+same for the sources each file names. The pack never speaks as any of them, quotes
+them or claims they endorse anything. This project is not affiliated with any of
+them.
 
 **The consumer panel is simulated buyers, not customers.** It is a fast, cheap way
 to find objections, segments and wording before you spend. It is not a forecast:
@@ -621,6 +763,7 @@ skills/founder-metrics/      SKILL.md, metrics.py, actuals.example.csv
 skills/founder-plan/         SKILL.md, compile.py
 skills/founder-pitch/        SKILL.md
 skills/founder-run/          SKILL.md, status.py
+skills/founder-playbook/     SKILL.md, playbook.py, frameworks/ (29 files)
 tests/                       the tests for every tool
 ```
 

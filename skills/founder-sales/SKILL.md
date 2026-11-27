@@ -132,6 +132,18 @@ such as `client-month`, so one unit is one client for one month. Put the monthly
 fee as the price and the cost of serving one client for a month as the variable
 cost.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `customer-development`: Customer Development
+- `mom-test`: The Mom Test
+- `graham-do-things-that-dont-scale`: Do Things that Don't Scale
+- `influence-principles`: The Seven Principles of Influence
+
 ## Output
 
 `founder/icp.md`, `founder/sales.md` and `founder/funnel.json` (the input to the

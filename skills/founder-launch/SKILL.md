@@ -66,6 +66,20 @@ Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`. Write every file in th
 (Vietnamese when they write Vietnamese) and use the currency from `founder/market.json`
 (VND is shown like `45,000₫`). Treat the Vietnam notes as prompts to check, not as sourced rules.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `lean-startup`: Lean Startup
+- `graham-do-things-that-dont-scale`: Do Things that Don't Scale
+- `customer-development`: Customer Development
+- `product-market-fit`: Product/Market Fit and the Sean Ellis Test
+- `bezos-decision-doors`: Two-Way Doors, 70 Percent Information and Regret Minimization
+- `inversion`: Inversion and the Pre-Mortem
+
 ## Output
 
 `founder/launch.md` with the test, the countdown, the run sheet and the 30-day

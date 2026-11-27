@@ -95,6 +95,19 @@ If `founder/market.json` exists, write `founder/summary.md` and
 `founder/one-pager.md` in its language and show money in its currency. The numbers
 come from the compiler, so they are already in the currency of `numbers.json`.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `bezos-working-backwards`: Working Backwards
+- `business-model-canvas`: Business Model Canvas
+- `hedgehog-flywheel`: Hedgehog Concept and Flywheel
+- `inversion`: Inversion and the Pre-Mortem
+- `blitzscaling`: Blitzscaling
+
 ## Output
 
 `founder/summary.md`, `founder/business-plan.md`, `founder/one-pager.md`. Then give

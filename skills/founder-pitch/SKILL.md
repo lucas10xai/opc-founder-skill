@@ -98,6 +98,18 @@ Print these at the end of both files and follow them:
 - Every market figure and competitor fact carries a source link.
 - Tell the audience about the biggest risk before they find it.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `bezos-working-backwards`: Working Backwards
+- `business-model-canvas`: Business Model Canvas
+- `blitzscaling`: Blitzscaling
+- `inversion`: Inversion and the Pre-Mortem
+
 ## Output
 
 `founder/pitch-deck.md` and `founder/pitch-qa.md`. Next: none, the pack ends

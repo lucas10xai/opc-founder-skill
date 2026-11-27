@@ -77,6 +77,21 @@ Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`. Write every file in th
 (Vietnamese when they write Vietnamese) and use the currency from `founder/market.json`
 (VND is shown like `45,000₫`). Treat the Vietnam notes as prompts to check, not as sourced rules.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `five-forces`: Five Forces
+- `porter-strategy-tradeoffs`: Strategy as Trade-offs
+- `blue-ocean`: Blue Ocean Strategy
+- `positioning`: Positioning
+- `jobs-to-be-done`: Jobs to Be Done
+- `moat-circle-of-competence`: Circle of Competence, Moat and Margin of Safety
+- `disruption-theory`: Disruption Theory
+
 ## Output
 
 `founder/competitors.csv`, `founder/competitors.md`. Next: `/founder-consumer`

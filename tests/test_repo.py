@@ -7,9 +7,11 @@ from _load import ROOT, SKILLS_DIR
 
 SKILLS = ["founder-board", "founder-marketing", "founder-cfo", "founder-consumer", "founder-launch",
           "founder-pricing", "founder-offer", "founder-competitors", "founder-brand", "founder-ops", "founder-plan",
-          "founder-interview", "founder-compliance", "founder-sales", "founder-metrics", "founder-pitch", "founder-run"]
-ABOUT = ("Seventeen free Claude skills that test a business before you launch it and track it after: a board trained "
-         "on Hormozi, Thiel and Jobs, a marketing director, a CFO, and a consumer panel of 100 buyer agents. Free, MIT.")
+          "founder-interview", "founder-compliance", "founder-sales", "founder-metrics", "founder-pitch", "founder-run",
+          "founder-playbook"]
+ABOUT = ("Eighteen free Claude skills that test a business before you launch it and track it after: a board of lenses "
+         "from Hormozi, Thiel, Jobs and other published frameworks, a marketing director, a CFO, a consumer panel of 100 "
+         "buyer agents and a library of founder frameworks. Free, MIT.")
 
 
 def frontmatter(path):
@@ -67,7 +69,7 @@ class Repo(unittest.TestCase):
         self.assertTrue(readme.startswith("# Bộ skill Founder"))   # the Vietnamese version comes first
         self.assertIn(" --- # The Founder skill ", readme)         # the English version follows, after a rule
         for line in (
-            "Seventeen Claude skills that test a business before you launch it, and check it once it is live. "
+            "Eighteen Claude skills that test a business before you launch it, and check it once it is live. "
             "Free, MIT, no signup, no API key, nothing to connect.",
             "One of them is your board of directors, trained on the frameworks of Alex Hormozi, Peter Thiel and "
             "Steve Jobs. One is your marketing director. One is your CFO and finds your real profit margins. And "

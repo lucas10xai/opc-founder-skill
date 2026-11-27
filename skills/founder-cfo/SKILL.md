@@ -110,6 +110,20 @@ or writes Vietnamese, also read `${CLAUDE_SKILL_DIR}/locale-vn.md`, set
 language, and put the platform commissions and payment fees in the per-unit
 variable costs.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `graham-default-alive`: Default Alive or Default Dead, and Ramen Profitable
+- `profit-first`: Profit First
+- `moat-circle-of-competence`: Circle of Competence, Moat and Margin of Safety
+- `bezos-decision-doors`: Two-Way Doors, 70 Percent Information and Regret Minimization
+- `calm-company`: The Calm Company
+- `first-principles`: First Principles Reasoning
+
 ## Output
 
 `founder/numbers.json`, `founder/cfo.md`, `founder/cfo-sources.md`. Next:

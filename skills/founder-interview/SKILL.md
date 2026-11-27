@@ -114,6 +114,19 @@ Read `founder/interviews/results.md` aloud in plain words:
 State the limits: a small sample, only people you could reach, money committed
 counts, a smile does not.
 
+## Frameworks that apply
+
+Published ideas from the pack's library (`/founder-playbook`) that bear on this
+step. Read one with `python3 "${CLAUDE_SKILL_DIR}/../founder-playbook/playbook.py" show <slug>`
+and use it as a lens on this step's output, following the file's "How the pack uses it"
+section for this step. It never replaces the numbers.
+
+- `mom-test`: The Mom Test
+- `customer-development`: Customer Development
+- `jobs-to-be-done`: Jobs to Be Done
+- `product-market-fit`: Product/Market Fit and the Sean Ellis Test
+- `graham-do-things-that-dont-scale`: Do Things that Don't Scale
+
 ## Output
 
 `founder/interviews/script.md` (screener, interview script, where to find
