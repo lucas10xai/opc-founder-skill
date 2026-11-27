@@ -3,8 +3,8 @@
   "name": "opc-founder-skill",
   "description": "The Founder skill pack for Claude",
   "owner": {
-    "name": "lucas10xai",
-    "url": "https://github.com/lucas10xai"
+    "name": "Lucas",
+    "url": "https://opcaios.org"
   },
   "plugins": [
     {

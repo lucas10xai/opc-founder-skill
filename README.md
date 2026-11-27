@@ -182,6 +182,10 @@ tests/                       the tests for every tool
 
 Your own files live in `founder/` in your project. The skills read each other's.
 
+## Made by
+
+Made by Lucas from [opcaios.org](https://opcaios.org).
+
 ## License
 
 MIT. Take it, change it, ship it.
