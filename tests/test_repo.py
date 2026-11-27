@@ -64,7 +64,8 @@ class Repo(unittest.TestCase):
     def test_readme_carries_the_reel_copy(self):
         with open(os.path.join(ROOT, "README.md"), encoding="utf-8") as fh:
             readme = " ".join(fh.read().split())
-        self.assertTrue(readme.startswith("# The Founder skill"))
+        self.assertTrue(readme.startswith("# Bộ skill Founder"))   # the Vietnamese version comes first
+        self.assertIn(" --- # The Founder skill ", readme)         # the English version follows, after a rule
         for line in (
             "Seventeen Claude skills that test a business before you launch it, and check it once it is live. "
             "Free, MIT, no signup, no API key, nothing to connect.",
